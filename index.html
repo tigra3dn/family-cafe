@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Famyli Cafe | Cocieri</title>
+  <meta name="description" content="Famyli Cafe in Cocieri.">
+  <style>
+    :root {
+      --bg: #f7f1e9;
+      --paper: #fffaf3;
+      --paper-strong: #fffdf8;
+      --ink: #261b16;
+      --muted: #786961;
+      --line: #dfd2c4;
+      --primary: #4e342e;
+      --primary-soft: #6b463b;
+      --accent: #d9a441;
+      --accent-deep: #a45f18;
+      --tomato: #b9472b;
+      --cream: #fff4df;
+      --shadow: 0 18px 45px rgba(43, 27, 19, .12);
+      --site-top: #3b241f;
+      --site-mid: #4e342e;
+      --site-bottom: #241815;
+      --panel: #2f211d;
+      --panel-strong: #211614;
+      --panel-soft: #3a2924;
+    }
+
+    * { box-sizing: border-box; }
+
+    [hidden] { display: none !important; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% -8rem, rgba(217,164,65,.22), transparent 31rem),
+        radial-gradient(circle at 18% 10rem, rgba(185,71,43,.12), transparent 27rem),
+        linear-gradient(180deg, var(--site-top) 0%, var(--site-mid) 17rem, #3f2a25 38rem, var(--site-bottom) 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+      padding-bottom: 7.5rem;
+    }
+
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    .app-frame {
+      width: min(100% - 2rem, 1720px);
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      min-height: 72vh;
+      overflow: clip;
+      border: 1px solid rgba(255,255,255,.08);
+      background: var(--panel-strong);
+      box-shadow: 0 24px 70px rgba(33, 22, 16, .24);
+    }
+
+    .content-panel {
+      min-width: 0;
+      padding: 1.45rem 1.65rem 2rem;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(217,164,65,.08), transparent 34rem),
+        var(--panel-strong);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #fffaf3;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.18)),
+        linear-gradient(135deg, var(--site-top), var(--site-mid) 52%, #6a4637);
+      text-align: center;
+      padding: .8rem 1rem 2.2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .13;
+      background-image:
+        radial-gradient(circle, currentColor 1px, transparent 1.4px),
+        linear-gradient(120deg, transparent 0 34%, rgba(255,255,255,.6) 48%, transparent 64%);
+      background-size: 22px 22px, 100% 100%;
+      pointer-events: none;
+    }
+
+    .language-bar {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      gap: .25rem;
+      flex-wrap: wrap;
+      max-width: calc(100vw - 2rem);
+      padding: .25rem;
+      border: 1px solid rgba(255,244,223,.34);
+      border-radius: 999px;
+      background: rgba(45, 24, 18, .24);
+      box-shadow: inset 0 1px rgba(255,255,255,.18), 0 12px 28px rgba(0,0,0,.13);
+      backdrop-filter: blur(10px);
+    }
+
+    .language-bar button {
+      min-width: 2.35rem;
+      min-height: 2.2rem;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255,244,223,.92);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-shadow: 0 1px 2px rgba(0,0,0,.2);
+    }
+
+    .language-bar .active {
+      color: #351f17;
+      background: linear-gradient(180deg, #fff7e8 0%, #f1c46a 100%);
+      box-shadow: 0 7px 18px rgba(0,0,0,.2), inset 0 1px rgba(255,255,255,.7);
+      text-shadow: none;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      padding-top: 1.75rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 .4rem;
+      color: rgba(255,255,255,.72);
+      font-size: clamp(.86rem, 2.4vw, 1.08rem);
+      font-weight: 700;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.35rem, 8vw, 4.8rem);
+      line-height: .92;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      width: 4rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,154,79,.9));
+    }
+
+    .ornament::after {
+      background: linear-gradient(90deg, rgba(196,154,79,.9), transparent);
+    }
+
+    .diamond {
+      width: .55rem;
+      height: .55rem;
+      transform: rotate(45deg);
+      background: var(--accent);
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+
+    .sticky-menu {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      align-self: start;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,.1);
+      background:
+        linear-gradient(180deg, rgba(255,244,223,.045), transparent 15rem),
+        var(--panel);
+      backdrop-filter: blur(16px);
+      box-shadow: none;
+    }
+
+    .wide {
+      max-width: none;
+      margin: 0 auto;
+      padding: 1rem 0 1.25rem;
+    }
+
+    .mode-switch {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .45rem;
+      max-width: none;
+      margin: 0;
+      padding: .15rem 1rem 1rem;
+    }
+
+    .mode-switch button,
+    .category-row button {
+      min-height: 2.75rem;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: .75rem;
+      background:
+        linear-gradient(180deg, rgba(255,244,223,.08) 0%, rgba(255,244,223,.035) 100%);
+      color: rgba(255,248,235,.92);
+      font-weight: 800;
+      box-shadow: inset 0 1px rgba(255,255,255,.08);
+      transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .mode-switch button:hover,
+    .category-row button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(217,164,65,.55);
+      box-shadow: 0 12px 24px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.12);
+    }
+
+    .mode-switch .active,
+    .category-row .active {
+      border-color: transparent;
+      color: #fff8eb;
+      background:
+        linear-gradient(135deg, #c05235 0%, #8d3826 45%, #5b372f 100%);
+      box-shadow: 0 14px 28px rgba(137, 57, 38, .28), inset 0 1px rgba(255,255,255,.2);
+      text-shadow: 0 1px 2px rgba(0,0,0,.26);
+    }
+
+    .category-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      overflow-x: visible;
+      padding: 0;
+      scrollbar-width: none;
+      scroll-snap-type: none;
+    }
+
+    .category-row {
+      justify-content: flex-start;
+    }
+
+    .category-row::-webkit-scrollbar { display: none; }
+
+    .category-row button {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: .65rem;
+      width: 100%;
+      min-height: 4rem;
+      padding: .5rem 1rem;
+      border-width: 1px 0 0;
+      border-color: rgba(255,255,255,.08);
+      border-radius: 0;
+      scroll-snap-align: none;
+      white-space: nowrap;
+      font-size: .92rem;
+      letter-spacing: .01em;
+      box-shadow: none;
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+
+    .telegram-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: currentColor;
+      stroke: #2b1a12;
+      stroke-width: 1.35;
+      filter: drop-shadow(0 1px 0 rgba(255,255,255,.28));
+    }
+
+    .search-wrap {
+      max-width: 680px;
+      margin: 0 auto 1.45rem;
+      padding: 0;
+      position: relative;
+    }
+
+    .search-wrap .icon {
+      position: absolute;
+      top: 50%;
+      left: 1.85rem;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    .search-wrap input {
+      width: 100%;
+      min-height: 3.1rem;
+      border: 1px solid rgba(111, 88, 74, .24);
+      border-radius: 1rem;
+      background: rgba(255,244,223,.08);
+      color: #fff8eb;
+      padding: .75rem 3rem;
+      outline: 0;
+      box-shadow: 0 9px 26px rgba(0,0,0,.12);
+    }
+
+    .search-wrap input:focus {
+      border-color: rgba(196,154,79,.75);
+      box-shadow: 0 0 0 3px rgba(196,154,79,.16);
+    }
+
+    .menu-shell {
+      max-width: none;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: .65rem 0 1rem;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 4vw, 2.25rem);
+      letter-spacing: .02em;
+      color: #fff;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: rgba(255,248,235,.66);
+      font-size: .95rem;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 1rem;
+      background: var(--panel-soft);
+      color: #f8fbff;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 18px 45px rgba(20, 16, 13, .18);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .dish-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196,154,79,.55);
+      box-shadow: 0 24px 55px rgba(43, 27, 19, .16);
+    }
+
+    .image-box {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,.65), transparent 34%),
+        linear-gradient(180deg, #fffaf0 0%, #fff1d7 58%, #e5c08b 100%);
+      overflow: hidden;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform .35s ease;
+    }
+
+    .dish-card:hover img { transform: scale(1.035); }
+
+    .moderation-label {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      color: #6c4632;
+      font-weight: 900;
+      font-size: clamp(1.05rem, 5vw, 1.45rem);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background:
+        radial-gradient(circle at 50% 32%, rgba(255,255,255,.7), transparent 42%),
+        linear-gradient(180deg, rgba(255,246,229,.78), rgba(218,183,139,.78));
+    }
+
+    .weight {
+      position: absolute;
+      bottom: .75rem;
+      left: .75rem;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: .55rem;
+      background: rgba(0,0,0,.52);
+      color: white;
+      padding: .25rem .55rem;
+      font-size: .72rem;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+
+    .dish-info {
+      padding: 1rem;
+      background: var(--panel-soft);
+    }
+
+    .dish-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .8rem;
+    }
+
+    .dish-info h3 {
+      margin: 0;
+      min-width: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .price {
+      flex: 0 0 auto;
+      color: #fff;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .dish-info p {
+      margin: .65rem 0 0;
+      color: rgba(248,251,255,.82);
+      font-size: .92rem;
+    }
+
+    .dish-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+
+    .dish-meta {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      min-width: 0;
+    }
+
+    .dish-volume {
+      border-left: 1px solid rgba(255,255,255,.16);
+      padding-left: .55rem;
+      color: #bfe8ff;
+      font-size: .9rem;
+      white-space: nowrap;
+    }
+
+    .drink-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .drink-card {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 1rem;
+      background: var(--panel-soft);
+      color: #f8fbff;
+      box-shadow: 0 18px 45px rgba(20, 16, 13, .18);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .drink-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196,154,79,.55);
+      box-shadow: 0 24px 55px rgba(43, 27, 19, .16);
+    }
+
+    .drink-image {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 45% 35%, rgba(255,255,255,.22), transparent 38%),
+        linear-gradient(180deg, #3a2a24, var(--panel-soft));
+    }
+
+    .drink-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .drink-image img:not([hidden]) + .moderation-label {
+      display: none;
+    }
+
+    .drink-info {
+      padding: 1rem;
+    }
+
+    .drink-info h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .drink-info p {
+      margin: .45rem 0 .8rem;
+      color: rgba(248,251,255,.82);
+      font-size: .9rem;
+    }
+
+    .drink-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-top: 2.3rem;
+    }
+
+    .drink-meta {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      min-width: 0;
+    }
+
+    .drink-meta .price {
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .drink-volume {
+      border-left: 1px solid rgba(255,255,255,.16);
+      padding-left: .55rem;
+      color: #bfe8ff;
+      font-size: .9rem;
+      white-space: nowrap;
+    }
+
+    .cart-button {
+      min-height: 2.65rem;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: .85rem;
+      background: linear-gradient(180deg, #4b3832, #30231f);
+      color: #fff;
+      padding: .45rem .9rem;
+      font-weight: 900;
+      box-shadow: inset 0 1px rgba(255,255,255,.08), 0 8px 18px rgba(0,0,0,.22);
+    }
+
+    .bottom-actions {
+      position: fixed;
+      z-index: 20;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: .6rem 1rem calc(.6rem + env(safe-area-inset-bottom));
+      pointer-events: none;
+    }
+
+    .action-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .35rem;
+      max-width: 460px;
+      margin: 0 auto;
+      padding: .45rem;
+      border: 1px solid rgba(255,244,223,.2);
+      border-radius: 1rem;
+      background:
+        linear-gradient(135deg, rgba(58, 40, 35, .96), rgba(91, 55, 47, .94));
+      box-shadow: 0 18px 45px rgba(30, 20, 15, .28);
+      backdrop-filter: blur(18px);
+      pointer-events: auto;
+    }
+
+    .action-bar a,
+    .action-button {
+      display: flex;
+      min-height: 3.75rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .25rem;
+      border: 0;
+      border-radius: .78rem;
+      background: transparent;
+      color: rgba(255,248,235,.96);
+      text-decoration: none;
+      font-size: .73rem;
+      font-weight: 900;
+      text-shadow: 0 1px 2px rgba(0,0,0,.24);
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+
+    .action-bar a:hover,
+    .action-button:hover {
+      transform: translateY(-1px);
+      background: rgba(255,244,223,.12);
+    }
+
+    .action-bar :nth-child(2) {
+      color: #2b1a12;
+      background: linear-gradient(180deg, #f6cf74 0%, var(--accent) 52%, #c9842d 100%);
+      box-shadow: inset 0 1px rgba(255,255,255,.5), 0 9px 22px rgba(0,0,0,.19);
+      text-shadow: none;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      align-items: end;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(18, 12, 9, .48);
+    }
+
+    .modal.open { display: flex; }
+
+    .modal-card {
+      width: min(100%, 720px);
+      max-height: min(92vh, 760px);
+      overflow: auto;
+      border-radius: 1.2rem;
+      background: var(--paper-strong);
+      box-shadow: 0 30px 80px rgba(0,0,0,.32);
+    }
+
+    .modal-card img {
+      width: 100%;
+      max-height: 52vh;
+      object-fit: contain;
+      background: #eadccf;
+      display: block;
+    }
+
+    .modal-placeholder {
+      display: grid;
+      place-items: center;
+      min-height: 18rem;
+      padding: 2rem;
+      color: #6c4632;
+      font-weight: 900;
+      font-size: clamp(1.2rem, 5vw, 1.8rem);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background:
+        radial-gradient(circle at 50% 32%, rgba(255,255,255,.7), transparent 42%),
+        linear-gradient(180deg, #fff1d8, #dec19f);
+    }
+
+    .modal-body { padding: 1.1rem; }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .modal h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .close {
+      width: 2.35rem;
+      height: 2.35rem;
+      border: 1px solid rgba(111,88,74,.24);
+      border-radius: 999px;
+      background: #fff7ec;
+      color: var(--ink);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .empty {
+      display: none;
+      border: 1px dashed rgba(111,88,74,.3);
+      border-radius: 1rem;
+      padding: 2rem;
+      color: var(--muted);
+      text-align: center;
+      background: rgba(255,250,243,.62);
+    }
+
+    @media (max-width: 900px) {
+      .app-frame {
+        width: 100%;
+        margin: 0;
+        display: block;
+        border-inline: 0;
+        border-bottom: 0;
+        overflow: visible;
+      }
+
+      .content-panel {
+        padding: 1rem;
+      }
+
+      .sticky-menu {
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+        background:
+          linear-gradient(180deg, rgba(255,244,223,.045), transparent 12rem),
+          rgba(47,33,29,.97);
+      }
+
+      .wide {
+        padding: .75rem 1rem .85rem;
+      }
+
+      .mode-switch {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 0 .65rem;
+      }
+
+      .category-row {
+        flex-direction: row;
+        gap: .45rem;
+        overflow-x: auto;
+        padding: 0;
+        scroll-snap-type: x proximity;
+      }
+
+      .category-row button {
+        width: auto;
+        min-height: 2.85rem;
+        padding: .35rem .82rem;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 999px;
+        scroll-snap-align: center;
+      }
+
+      .food-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .drink-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      body { padding-bottom: 6.8rem; }
+      .hero { padding-bottom: 1.9rem; }
+      .category-row { justify-content: flex-start; }
+      .food-grid, .drink-list { grid-template-columns: 1fr; }
+      .section-title { align-items: flex-start; flex-direction: column; gap: .25rem; }
+      .dish-card { border-radius: .95rem; }
+      .modal { padding: .75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="language-bar" aria-label="Language">
+      <button class="active" type="button" data-lang="ro">RO</button>
+      <button type="button" data-lang="ru">RU</button>
+    </nav>
+    <div class="brand">
+      <p class="eyebrow">Cocieri</p>
+      <h1>Famyli Cafe</h1>
+      <div class="ornament" aria-hidden="true"><span class="diamond"></span></div>
+    </div>
+  </header>
+
+  <div class="app-frame">
+    <nav class="sticky-menu" aria-label="Menu filters">
+      <div class="wide">
+        <div class="mode-switch">
+          <button class="active" type="button" data-mode="food" data-i18n="foodMode">Mâncare</button>
+          <button type="button" data-mode="drinks" data-i18n="drinksMode">Băuturi</button>
+        </div>
+        <div class="category-row" id="categories"></div>
+      </div>
+    </nav>
+
+    <div class="content-panel">
+      <div class="search-wrap">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3"></path><circle cx="11" cy="11" r="8"></circle></svg>
+        <input id="search" type="search" placeholder="Caută în meniu (mâncare și băuturi)..." autocomplete="off">
+      </div>
+
+      <main class="menu-shell">
+        <div class="section-title">
+          <div>
+            <h2 id="menu-title">Preparatele</h2>
+            <p id="menu-subtitle">Gusturi moldovenești într-o prezentare modernă.</p>
+          </div>
+          <p id="counter"></p>
+        </div>
+        <section class="food-grid" id="foodGrid" aria-label="Food menu"></section>
+        <section class="drink-list" id="drinkList" aria-label="Drinks menu" hidden></section>
+        <div class="empty" id="empty">Nu am găsit nimic pentru căutarea ta.</div>
+      </main>
+    </div>
+  </div>
+
+  <div class="bottom-actions">
+    <div class="action-bar">
+      <a href="#reservation" aria-label="Rezervare">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path></svg>
+        <span data-i18n="reservation">Rezervare</span>
+      </a>
+      <button class="action-button" type="button" aria-label="Telegram Bot">
+        <svg class="icon telegram-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.8 4.4 18.6 20a1.2 1.2 0 0 1-1.9.7l-4.8-3.5-2.3 2.2a.8.8 0 0 1-1.3-.4l-1.2-4.5-4.4-1.4a1 1 0 0 1 0-1.9L20.4 3a1.1 1.1 0 0 1 1.4 1.4Z"></path>
+          <path d="M7.2 14.5 18.4 7l-6.5 10.2"></path>
+        </svg>
+        Telegram Bot
+      </button>
+      <a href="https://www.google.com/maps/search/?api=1&query=47.3090733%2C29.1078818" aria-label="Hartă 8455+H6 Кочиеры, Молдова">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span data-i18n="map">Hartă</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <article class="modal-card">
+      <div class="modal-placeholder" data-i18n="moderation">в процессе модерации</div>
+      <div class="modal-body">
+        <div class="modal-head">
+          <div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalMeta"></p>
+          </div>
+          <button class="close" type="button" aria-label="Închide">×</button>
+        </div>
+        <p id="modalDescription"></p>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    const imageBase = "assets/images/menu/";
+    const coffeeImageBase = "assets/images/drinks/coffee/";
+
+    const translations = {
+      ro: {
+        foodMode: "Mâncare",
+        drinksMode: "Băuturi",
+        foodTitle: "Preparatele",
+        foodSubtitle: "Gusturi moldovenești într-o prezentare modernă.",
+        drinksSubtitle: "Alege categoria dorită din meniul de băuturi.",
+        search: "Caută în meniu (mâncare și băuturi)...",
+        empty: "Nu am găsit nimic pentru căutarea ta.",
+        count: "poziții",
+        moderation: "în proces de moderare",
+        cart: "În coș",
+        reservation: "Rezervare",
+        map: "Hartă",
+        categories: {
+          salads: "Salate",
+          soups: "Supe",
+          main: "Feluri principale",
+          sides: "Garnituri",
+          pizza: "Pizza",
+          starters: "Aperitive",
+          pies: "Plăcinte",
+          desserts: "Deserturi",
+          platouri: "Platouri",
+          coffee: "Cafea",
+          hot: "Băuturi calde",
+          drinks: "Băuturi",
+          juice: "Sucuri",
+          cocktails: "Cocktailuri",
+          alcohol: "Alcool",
+          beer: "Bere"
+        }
+      },
+      ru: {
+        foodMode: "Еда",
+        drinksMode: "Напитки",
+        foodTitle: "Блюда",
+        foodSubtitle: "Вкусные блюда в современном оформлении.",
+        drinksSubtitle: "Выберите нужную категорию напитков.",
+        search: "Поиск по меню (еда и напитки)...",
+        empty: "По вашему запросу ничего не найдено.",
+        count: "позиций",
+        moderation: "в процессе модерации",
+        cart: "В корзину",
+        reservation: "Бронь",
+        map: "Карта",
+        categories: {
+          salads: "Салаты",
+          soups: "Супы",
+          main: "Основное",
+          sides: "Гарниры",
+          pizza: "Пицца",
+          starters: "Закуски",
+          pies: "Плацинды",
+          desserts: "Десерты",
+          platouri: "Плато",
+          coffee: "Кофе",
+          hot: "Горячие напитки",
+          drinks: "Напитки",
+          juice: "Соки",
+          cocktails: "Коктейли",
+          alcohol: "Алкоголь",
+          beer: "Пиво"
+        }
+      }
+    };
+
+    function t(key) {
+      return translations[state.lang][key];
+    }
+
+    function categoryLabel(key, fallback) {
+      return translations[state.lang].categories[key] || fallback;
+    }
+
+    const categories = {
+      food: [
+        ["salads", "Salate", "salad"],
+        ["soups", "Supe", "soup"],
+        ["main", "Feluri principale", "chef"],
+        ["sides", "Garnituri", "carrot"],
+        ["pizza", "Pizza", "pizza"],
+        ["starters", "Aperitive", "fork"],
+        ["pies", "Plăcinte", "cookie"],
+        ["desserts", "Deserturi", "cake"],
+        ["platouri", "Platouri", "layers"]
+      ],
+      drinks: [
+        ["coffee", "Cafea", "cup"],
+        ["hot", "Băuturi calde", "sparkles"],
+        ["drinks", "Băuturi", "glass"],
+        ["juice", "Sucuri", "sparkles"],
+        ["cocktails", "Cocktailuri", "wine"],
+        ["alcohol", "Alcool", "glass"],
+        ["beer", "Bere", "mug"],
+      ]
+    };
+
+    const icons = {
+      grid: '<rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect>',
+      layers: '<path d="m12 2 9 4-9 4-9-4 9-4Z"></path><path d="m3 12 9 4 9-4"></path><path d="m3 17 9 4 9-4"></path>',
+      chef: '<path d="M17 21H7v-6.3a4 4 0 0 1 1.4-7.7 5 5 0 0 1 7.2 0 4 4 0 0 1 1.4 7.7V21Z"></path><path d="M7 17h10"></path>',
+      salad: '<path d="M7 21h10"></path><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"></path><path d="M13 12l4-4"></path>',
+      soup: '<path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"></path><path d="M7 21h10"></path><path d="M7 3c1 1 1 2 0 3"></path><path d="M12 3c1 1 1 2 0 3"></path><path d="M17 3c1 1 1 2 0 3"></path>',
+      fork: '<path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"></path><path d="M15 15 3 3a4.2 4.2 0 0 0 0 6l7.5 7.5a2 2 0 0 0 2.8 0L15 15Zm0 0 7 7"></path>',
+      carrot: '<path d="M2.3 21.7s9.8-3.5 12.7-6.4a4.5 4.5 0 0 0-6.4-6.3C5.8 11.8 2.3 21.7 2.3 21.7Z"></path><path d="M22 9s-1.3-2-3.5-2S15 9 15 9s1.3 2 3.5 2S22 9 22 9Z"></path><path d="M15 2s-2 1.3-2 3.5S15 9 15 9s2-1.8 2-3.5S15 2 15 2Z"></path>',
+      cookie: '<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5h.01"></path><path d="M16 15.5h.01"></path><path d="M12 12h.01"></path>',
+      pizza: '<path d="M15 11h.01"></path><path d="M11 15h.01"></path><path d="M16 16h.01"></path><path d="m2 16 20-8-8 20-3.5-8.5L2 16Z"></path><path d="M8.5 14.5 14 20"></path>',
+      cake: '<path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M2 21h20"></path><path d="M7 8v3"></path><path d="M12 8v3"></path><path d="M17 8v3"></path>',
+      wine: '<path d="M8 22h8"></path><path d="M7 10h10"></path><path d="M12 15v7"></path><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"></path>',
+      glass: '<path d="M8 22h8"></path><path d="M12 11v11"></path><path d="M17 2H7l1 9a4 4 0 0 0 8 0l1-9Z"></path>',
+      mug: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>',
+      cup: '<path d="M10 2v2"></path><path d="M14 2v2"></path><path d="M16 8h1a4 4 0 1 1 0 8h-1"></path><path d="M4 8h12v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z"></path>',
+      sparkles: '<path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3Z"></path><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14Z"></path>'
+    };
+
+    const dishes = [
+      ["Platou Grill Vatra", "Asortiment de preparate la grătar, servire pentru masă.", "xxxx g", "xxxx lei", "platouri", "50.png"],
+      ["Platou Moldovenesc", "Carne, murături, brânzeturi și gustări tradiționale.", "xxxx g", "xxx lei", "platouri", "58.png"],
+      ["Costițe de porc", "Costițe rumenite lent, glazură aromată și cartofi copți.", "xxx g", "xxx lei", "main", "52.png"],
+      ["Mămăligă cu friptură", "Mămăligă cremoasă, brânză, smântână și carne fragedă.", "xxx g", "xxx lei", "main", "54.png"],
+      ["Zeamă de casă", "Supă limpede cu tăieței, pui și verdeață proaspătă.", "xxx g", "xx lei", "soups", "23.png"],
+      ["Borș roșu", "Sfeclă, legume de sezon, smântână și verdeață.", "xxx g", "xx lei", "soups", "24.png"],
+      ["Salată Vatra", "Legume coapte, brânză de oi și dressing cu ierburi.", "xxx g", "xxx lei", "salads", "25.png"],
+      ["Salată cu pui", "Piept de pui, frunze crocante, crutoane și sos fin.", "xxx g", "xxx lei", "salads", "26.png"],
+      ["Sarmale", "Foi de viță și varză, carne, orez și smântână.", "xxx g", "xxx lei", "main", "27.png"],
+      ["Tocană tradițională", "Carne înăbușită cu legume și sos dens de casă.", "xxx g", "xxx lei", "main", "28.png"],
+      ["Brânză de oi", "Brânzeturi locale, roșii și pâine caldă.", "xxx g", "xxx lei", "starters", "29.png"],
+      ["Murături asortate", "Castraveți, roșii, varză și ardei murați.", "xxx g", "xx lei", "starters", "30.png"],
+      ["Cartofi cu rozmarin", "Cartofi rumeniți, usturoi și verdeață.", "xxx g", "xx lei", "sides", "31.png"],
+      ["Legume la grătar", "Dovlecel, ardei, vinete și sos de ierburi.", "xxx g", "xx lei", "sides", "32.png"],
+      ["Plăcintă cu brânză", "Aluat subțire, brânză sărată și mărar.", "xxx g", "xxx lei", "pies", "33.png"],
+      ["Plăcintă cu cartofi", "Rețetă rustică, coaptă până devine aurie.", "xxx g", "xx lei", "pies", "34.png"],
+      ["Cușma lui Guguță", "Clătite, vișine și cremă fină.", "xxx g", "xxx lei", "desserts", "35.png"],
+      ["Papanași", "Desert cald cu smântână și dulceață.", "xxx g", "xxx lei", "desserts", "36.png"]
+    ].map(([name, description, weight, price, category, image]) => ({ name, description, weight, price, category, image: imageBase + image }));
+
+    const drinkGroups = [
+      { category: "coffee", title: "Cafea", items: [
+        { name: "Americano", nameRu: "Американо", description: "Boabe de cafea, apă.", descriptionRu: "Кофейные зерна, вода.", volume: "100 ml", price: "xx lei", image: coffeeImageBase + "americano.jpg" },
+        { name: "Espresso", nameRu: "Эспрессо", description: "Boabe de cafea, apă.", descriptionRu: "Кофейные зерна, вода.", volume: "30 ml", price: "xx lei", image: coffeeImageBase + "espresso.jpg" },
+        { name: "Cappuccino", nameRu: "Капучино", description: "Espresso, lapte.", descriptionRu: "Эспрессо, молоко.", volume: "150 ml", price: "xx lei", image: coffeeImageBase + "cappuccino.jpg" },
+        { name: "Coffee Latte", nameRu: "Кофе Латте", description: "Boabe de cafea, lapte.", descriptionRu: "Кофейные зерна, молоко.", volume: "250 ml", price: "xx lei", image: coffeeImageBase + "coffee-latte.jpg" },
+        { name: "Caramel Ice Latte", nameRu: "Карамель Айс Латте", description: "Espresso, sirop, lapte, gheață.", descriptionRu: "Эспрессо, сироп, молоко, лёд.", volume: "350 ml", price: "xx lei", image: coffeeImageBase + "caramel-ice-latte.jpg" }
+      ] },
+      { category: "hot", title: "Băuturi calde", items: [["Ceai de cătină", "400 ml", "xx lei"], ["Ceai în asortiment", "400 ml", "xx lei"], ["Ciocolată caldă", "250 ml", "xx lei"]] },
+      { category: "drinks", title: "Băuturi", items: [["Apă plată", "0.33 L", "xx lei"], ["Apă minerală", "0.33 L", "xx lei"], ["Coca-Cola", "0.25 L", "xx lei"], ["Compot de casă", "0.5 L", "xx lei"]] },
+      { category: "juice", title: "Sucuri", items: [["Suc de portocale", "250 ml", "xx lei"], ["Suc de mere", "250 ml", "xx lei"], ["Limonadă", "400 ml", "xx lei"]] },
+      { category: "cocktails", title: "Cocktailuri", items: [["Mojito", "300 ml", "xx lei"], ["Aperol Spritz", "300 ml", "xxx lei"], ["Gin Tonic", "300 ml", "xxx lei"]] },
+      { category: "alcohol", title: "Alcool", items: [["Vodka", "50 ml", "xx lei"], ["Whisky", "50 ml", "xxx lei"], ["Divin", "50 ml", "xx lei"], ["Vin casei", "150 ml", "xx lei"]] },
+      { category: "beer", title: "Bere", items: [["Bere blondă", "0.5 L", "xx lei"], ["Bere brună", "0.5 L", "xx lei"], ["Bere fără alcool", "0.33 L", "xx lei"]] }
+    ];
+
+    const state = { mode: "food", category: "all", query: "", lang: "ro" };
+
+    const els = {
+      categories: document.querySelector("#categories"),
+      foodGrid: document.querySelector("#foodGrid"),
+      drinkList: document.querySelector("#drinkList"),
+      search: document.querySelector("#search"),
+      title: document.querySelector("#menu-title"),
+      subtitle: document.querySelector("#menu-subtitle"),
+      counter: document.querySelector("#counter"),
+      empty: document.querySelector("#empty"),
+      modal: document.querySelector("#modal"),
+      modalImage: document.querySelector("#modalImage"),
+      modalTitle: document.querySelector("#modalTitle"),
+      modalMeta: document.querySelector("#modalMeta"),
+      modalDescription: document.querySelector("#modalDescription")
+    };
+
+    function icon(name) {
+      return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${icons[name] || icons.grid}</svg>`;
+    }
+
+    function renderCategories() {
+      els.categories.innerHTML = categories[state.mode].map(([key, label, iconName]) => `
+        <button type="button" data-category="${key}" class="${state.category === key ? "active" : ""}">
+          ${icon(iconName)}<span>${categoryLabel(key, label)}</span>
+        </button>
+      `).join("");
+    }
+
+    function matches(text) {
+      return text.toLowerCase().includes(state.query.toLowerCase().trim());
+    }
+
+    function renderFood() {
+      const filtered = dishes.filter(dish => {
+        const categoryOk = state.category === "all" || dish.category === state.category;
+        const queryOk = !state.query || matches(`${dish.name} ${dish.description} ${dish.price}`);
+        return categoryOk && queryOk;
+      });
+
+      els.foodGrid.innerHTML = filtered.map((dish, index) => `
+        <article class="dish-card" data-index="${dishes.indexOf(dish)}">
+          <div class="image-box">
+            <div class="moderation-label">${t("moderation")}</div>
+            <span class="weight">${dish.weight}</span>
+          </div>
+          <div class="dish-info">
+            <h3>${dish.name}</h3>
+            <p>${dish.description}</p>
+            <div class="dish-bottom">
+              <div class="dish-meta">
+                <strong class="price">${dish.price}</strong>
+                <span class="dish-volume">${dish.weight}</span>
+              </div>
+              <button class="cart-button" type="button">${t("cart")}</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      els.counter.textContent = `${filtered.length} ${t("count")}`;
+      els.empty.style.display = filtered.length ? "none" : "block";
+    }
+
+    function renderDrinks() {
+      const drinks = drinkGroups.flatMap(group => (
+        group.items.map(item => {
+          if (Array.isArray(item)) {
+            const [name, volume, price] = item;
+            return { name, volume, price, description: categoryLabel(group.category, group.title), category: group.category, groupTitle: group.title };
+          }
+          return { ...item, category: group.category, groupTitle: group.title };
+        })
+      )).filter(drink => {
+          const categoryOk = state.category === "all" || drink.category === state.category;
+          const queryOk = !state.query || matches(`${drink.groupTitle} ${drink.name} ${drink.description || ""} ${drink.volume || ""} ${drink.price}`);
+          return categoryOk && queryOk;
+      });
+
+      els.drinkList.innerHTML = drinks.map(drink => `
+        <article class="drink-card">
+          <div class="drink-image">
+            ${drink.image ? `<img src="${drink.image}" alt="${drink.name}" loading="lazy" onerror="this.hidden=true">` : ""}
+            <div class="moderation-label">${t("moderation")}</div>
+          </div>
+          <div class="drink-info">
+            <h3>${state.lang === "ru" && drink.nameRu ? drink.nameRu : drink.name}</h3>
+            <p>${state.lang === "ru" && drink.descriptionRu ? drink.descriptionRu : (drink.description || categoryLabel(drink.category, drink.groupTitle))}</p>
+            <div class="drink-bottom">
+              <div class="drink-meta">
+                <strong class="price">${drink.price}</strong>
+                ${drink.volume ? `<span class="drink-volume">${drink.volume}</span>` : ""}
+              </div>
+              <button class="cart-button" type="button">${t("cart")}</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      els.counter.textContent = `${drinks.length} ${t("count")}`;
+      els.empty.style.display = drinks.length ? "none" : "block";
+    }
+
+    function renderStaticText() {
+      document.querySelectorAll("[data-i18n]").forEach(node => {
+        const key = node.dataset.i18n;
+        if (t(key)) node.textContent = t(key);
+      });
+      els.search.placeholder = t("search");
+      els.empty.textContent = t("empty");
+      document.querySelectorAll(".language-bar button").forEach(button => {
+        button.classList.toggle("active", button.dataset.lang === state.lang);
+      });
+      document.documentElement.lang = state.lang;
+    }
+
+    function render() {
+      renderStaticText();
+      renderCategories();
+      const foodMode = state.mode === "food";
+      els.foodGrid.hidden = !foodMode;
+      els.drinkList.hidden = foodMode;
+      const activeCategory = categories[state.mode].find(([key]) => key === state.category);
+      els.title.textContent = activeCategory ? categoryLabel(activeCategory[0], activeCategory[1]) : (foodMode ? t("foodTitle") : t("drinksMode"));
+      els.subtitle.textContent = foodMode
+        ? t("foodSubtitle")
+        : t("drinksSubtitle");
+      if (foodMode) renderFood(); else renderDrinks();
+    }
+
+    document.querySelectorAll("[data-mode]").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-mode]").forEach(item => item.classList.toggle("active", item === button));
+        state.mode = button.dataset.mode;
+        state.category = categories[state.mode][0][0];
+        render();
+      });
+    });
+
+    els.categories.addEventListener("click", event => {
+      const button = event.target.closest("button[data-category]");
+      if (!button) return;
+      const key = button.dataset.category;
+      if (key === "food-jump") {
+        document.querySelector('[data-mode="food"]').click();
+        return;
+      }
+      state.category = key;
+      render();
+    });
+
+    els.search.addEventListener("input", event => {
+      state.query = event.target.value;
+      render();
+    });
+
+    els.foodGrid.addEventListener("click", event => {
+      if (event.target.closest(".cart-button")) return;
+      const card = event.target.closest(".dish-card");
+      if (!card) return;
+      const dish = dishes[Number(card.dataset.index)];
+      els.modalTitle.textContent = dish.name;
+      els.modalMeta.textContent = `${dish.weight} · ${dish.price}`;
+      els.modalDescription.textContent = dish.description;
+      els.modal.classList.add("open");
+    });
+
+    document.querySelector(".close").addEventListener("click", () => els.modal.classList.remove("open"));
+    els.modal.addEventListener("click", event => {
+      if (event.target === els.modal) els.modal.classList.remove("open");
+    });
+
+    document.querySelectorAll(".language-bar button").forEach(button => {
+      button.addEventListener("click", () => {
+        state.lang = button.dataset.lang;
+        render();
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>
