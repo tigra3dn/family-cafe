@@ -883,6 +883,7 @@
     const imageBase = "assets/images/menu/";
     const coffeeImageBase = "assets/images/drinks/coffee/";
     const soupsImageBase = "assets/images/food/soups/";
+    const saladsImageBase = "assets/images/food/salads/";
 
     const translations = {
       ro: {
@@ -1014,8 +1015,16 @@
       { name: "Supă de mazăre (post)", nameRu: "Гороховый суп постный", description: "Supă de post cu mazăre, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Постный гороховый суп с картофелем, морковью, луком и зеленью.", weight: "350 g", price: "25 lei", category: "soups", image: soupsImageBase + "supa-de-mazare-post.jpg" },
       { name: "Supă Harcio", nameRu: "Суп харчо", description: "Supă aromată cu carne de vită, orez, roșii, usturoi și condimente.", descriptionRu: "Ароматный суп с говядиной, рисом, томатами, чесноком и специями.", weight: "350 g", price: "35 lei", category: "soups", image: soupsImageBase + "supa-harcio.jpg" },
       { name: "Zeamă", nameRu: "Зама", description: "Supă tradițională cu pui, tăieței, legume, verdeață și gust ușor acrișor.", descriptionRu: "Традиционный суп с курицей, лапшой, овощами, зеленью и лёгкой кислинкой.", weight: "350 g", price: "30 lei", category: "soups", image: soupsImageBase + "zeama.jpg" },
-      { name: "Salată Vatra", description: "Legume coapte, brânză de oi și dressing cu ierburi.", weight: "xxx g", price: "xxx lei", category: "salads", image: "25.png" },
-      { name: "Salată cu pui", description: "Piept de pui, frunze crocante, crutoane și sos fin.", weight: "xxx g", price: "xxx lei", category: "salads", image: "26.png" },
+      { name: "Salată cu castraveți", nameRu: "Салат с огурцами", description: "Salată simplă cu castraveți proaspeți, verdeață și dressing ușor.", descriptionRu: "Лёгкий салат со свежими огурцами, зеленью и нежной заправкой.", weight: "200 g", price: "10 lei", category: "salads", image: saladsImageBase + "salata-cu-castraveti.jpg" },
+      { name: "Salată cu morcov", nameRu: "Салат с морковью", description: "Morcov proaspăt ras, verdeață și dressing ușor de casă.", descriptionRu: "Свежая тёртая морковь, зелень и лёгкая домашняя заправка.", weight: "200 g", price: "10 lei", category: "salads", image: saladsImageBase + "salata-cu-morcov.jpg" },
+      { name: "Salată cu varză murată", nameRu: "Салат с квашеной капустой", description: "Varză murată crocantă, ceapă, ulei aromat și verdeață.", descriptionRu: "Хрустящая квашеная капуста, лук, ароматное масло и зелень.", weight: "200 g", price: "10 lei", category: "salads", image: saladsImageBase + "salata-cu-varza-murata.jpg" },
+      { name: "Salată de sfeclă", nameRu: "Салат из свёклы", description: "Sfeclă fiartă, usturoi, verdeață și dressing ușor.", descriptionRu: "Отварная свёкла, чеснок, зелень и лёгкая заправка.", weight: "200 g", price: "10 lei", category: "salads", image: saladsImageBase + "salata-de-sfecla.jpg" },
+      { name: "Salată din varză", nameRu: "Салат из капусты", description: "Varză proaspătă, morcov, verdeață și dressing clasic.", descriptionRu: "Свежая капуста, морковь, зелень и классическая заправка.", weight: "200 g", price: "10 lei", category: "salads", image: saladsImageBase + "salata-din-varza.jpg" },
+      { name: "Salată Grecească", nameRu: "Греческий салат", description: "Roșii, castraveți, ardei, măsline, brânză feta și ulei de măsline.", descriptionRu: "Помидоры, огурцы, перец, маслины, сыр фета и оливковое масло.", weight: "250 g", price: "25 lei", category: "salads", image: saladsImageBase + "salata-greceasca.jpg" },
+      { name: "Salată Hering", nameRu: "Салат с сельдью", description: "Hering, cartofi, sfeclă, morcov, ceapă și dressing cremos.", descriptionRu: "Сельдь, картофель, свёкла, морковь, лук и кремовая заправка.", weight: "250 g", price: "15 lei", category: "salads", image: saladsImageBase + "salata-hering.jpg" },
+      { name: "Salată Olivier", nameRu: "Салат Оливье", description: "Cartofi, morcov, mazăre, castraveți murați, ou, carne și maioneză.", descriptionRu: "Картофель, морковь, горошек, солёные огурцы, яйцо, мясо и майонез.", weight: "250 g", price: "25 lei", category: "salads", image: saladsImageBase + "salata-olivier.jpg" },
+      { name: "Salată Primăvara", nameRu: "Салат Весенний", description: "Legume proaspete, ou, verdeață și dressing delicat.", descriptionRu: "Свежие овощи, яйцо, зелень и нежная заправка.", weight: "220 g", price: "15 lei", category: "salads", image: saladsImageBase + "salata-primavara.jpg" },
+      { name: "Salată Vinegret", nameRu: "Салат Винегрет", description: "Sfeclă, cartofi, morcov, mazăre, castraveți murați și ulei aromat.", descriptionRu: "Свёкла, картофель, морковь, горошек, солёные огурцы и ароматное масло.", weight: "220 g", price: "15 lei", category: "salads", image: saladsImageBase + "salata-vinegret.jpg" },
       { name: "Sarmale", description: "Foi de viță și varză, carne, orez și smântână.", weight: "xxx g", price: "xxx lei", category: "main", image: "27.png" },
       { name: "Tocană tradițională", description: "Carne înăbușită cu legume și sos dens de casă.", weight: "xxx g", price: "xxx lei", category: "main", image: "28.png" },
       { name: "Brânză de oi", description: "Brânzeturi locale, roșii și pâine caldă.", weight: "xxx g", price: "xxx lei", category: "starters", image: "29.png" },
