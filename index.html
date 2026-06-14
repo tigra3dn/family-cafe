@@ -361,6 +361,8 @@
     }
 
     .dish-card {
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, .08);
       border-radius: 1rem;
@@ -433,8 +435,12 @@
     }
 
     .dish-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
       padding: 1rem;
       background: var(--panel-soft);
+      text-align: center;
     }
 
     .dish-top {
@@ -451,6 +457,7 @@
       font-size: 1.12rem;
       line-height: 1.2;
       color: #fff;
+      text-align: center;
     }
 
     .price {
@@ -464,14 +471,16 @@
       margin: .65rem 0 0;
       color: rgba(248,251,255,.82);
       font-size: .92rem;
+      text-align: center;
     }
 
     .dish-bottom {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: .75rem;
-      margin-top: 2rem;
+      margin-top: auto;
+      padding-top: 2rem;
     }
 
     .dish-meta {
@@ -496,6 +505,8 @@
     }
 
     .drink-card {
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, .08);
       border-radius: 1rem;
@@ -532,7 +543,11 @@
     }
 
     .drink-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
       padding: 1rem;
+      text-align: center;
     }
 
     .drink-info h3 {
@@ -541,20 +556,23 @@
       font-size: 1.12rem;
       line-height: 1.2;
       color: #fff;
+      text-align: center;
     }
 
     .drink-info p {
       margin: .45rem 0 .8rem;
       color: rgba(248,251,255,.82);
       font-size: .9rem;
+      text-align: center;
     }
 
     .drink-bottom {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: .75rem;
-      margin-top: 2.3rem;
+      margin-top: auto;
+      padding-top: 2.3rem;
     }
 
     .drink-meta {
