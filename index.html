@@ -390,9 +390,13 @@
     .image-box img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       display: block;
       transition: transform .35s ease;
+    }
+
+    .image-box img:not([hidden]) + .moderation-label {
+      display: none;
     }
 
     .dish-card:hover img { transform: scale(1.035); }
@@ -871,6 +875,7 @@
   <script>
     const imageBase = "assets/images/menu/";
     const coffeeImageBase = "assets/images/drinks/coffee/";
+    const soupsImageBase = "assets/images/food/soups/";
 
     const translations = {
       ro: {
@@ -993,17 +998,17 @@
       { name: "Platou Moldovenesc", description: "Carne, murături, brânzeturi și gustări tradiționale.", weight: "xxxx g", price: "xxx lei", category: "platouri", image: "58.png" },
       { name: "Costițe de porc", description: "Costițe rumenite lent, glazură aromată și cartofi copți.", weight: "xxx g", price: "xxx lei", category: "main", image: "52.png" },
       { name: "Mămăligă cu friptură", description: "Mămăligă cremoasă, brânză, smântână și carne fragedă.", weight: "xxx g", price: "xxx lei", category: "main", image: "54.png" },
-      { name: "Borș roșu", nameRu: "Борщ красный", description: "Supă acrișoară cu sfeclă, varză, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Кисловатый суп со свеклой, капустой, картофелем, морковью, луком и зеленью.", weight: "350 g", price: "25 lei", category: "soups", image: "24.png" },
-      { name: "Ciorbă de fasole", nameRu: "Чорба с фасолью", description: "Supă consistentă cu fasole, legume, ceapă, morcov, ardei și verdeață.", descriptionRu: "Сытный суп с фасолью, овощами, луком, морковью, перцем и зеленью.", weight: "350 g", price: "30 lei", category: "soups", image: "23.png" },
-      { name: "Ciorbă rădăuțeană", nameRu: "Чорба радаутяну", description: "Supă cremoasă cu pui, smântână, usturoi, morcov și ardei.", descriptionRu: "Кремовый суп с курицей, сметаной, чесноком, морковью и перцем.", weight: "350 g", price: "35 lei", category: "soups", image: "23.png" },
-      { name: "Rassolnik", nameRu: "Рассольник", description: "Supă cu castraveți murați, cartofi, morcov, ceapă și arpacaș.", descriptionRu: "Суп с солёными огурцами, картофелем, морковью, луком и перловкой.", weight: "350 g", price: "30 lei", category: "soups", image: "23.png" },
-      { name: "Soleanca", nameRu: "Солянка", description: "Supă bogată cu afumături, castraveți murați, măsline, lămâie și verdeață.", descriptionRu: "Насыщенный суп с копчёностями, солёными огурцами, маслинами, лимоном и зеленью.", weight: "350 g", price: "35 lei", category: "soups", image: "23.png" },
-      { name: "Supă cremă de linte", nameRu: "Крем-суп из чечевицы", description: "Supă fină din linte, legume, usturoi și condimente ușoare.", descriptionRu: "Нежный суп из чечевицы, овощей, чеснока и лёгких специй.", weight: "300 g", price: "30 lei", category: "soups", image: "23.png" },
-      { name: "Supă cu chifteluțe", nameRu: "Суп с фрикадельками", description: "Supă de casă cu chifteluțe, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Домашний суп с фрикадельками, картофелем, морковью, луком и зеленью.", weight: "350 g", price: "30 lei", category: "soups", image: "23.png" },
-      { name: "Supă cu mazăre", nameRu: "Гороховый суп", description: "Supă cu mazăre, legume, cartofi și verdeață, în stil clasic de cafe.", descriptionRu: "Гороховый суп с овощами, картофелем и зеленью в классическом стиле кафе.", weight: "350 g", price: "25 lei", category: "soups", image: "23.png" },
-      { name: "Supă de mazăre (post)", nameRu: "Гороховый суп постный", description: "Supă de post cu mazăre, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Постный гороховый суп с картофелем, морковью, луком и зеленью.", weight: "350 g", price: "25 lei", category: "soups", image: "23.png" },
-      { name: "Supă Harcio", nameRu: "Суп харчо", description: "Supă aromată cu carne de vită, orez, roșii, usturoi și condimente.", descriptionRu: "Ароматный суп с говядиной, рисом, томатами, чесноком и специями.", weight: "350 g", price: "35 lei", category: "soups", image: "23.png" },
-      { name: "Zeamă", nameRu: "Зама", description: "Supă tradițională cu pui, tăieței, legume, verdeață și gust ușor acrișor.", descriptionRu: "Традиционный суп с курицей, лапшой, овощами, зеленью и лёгкой кислинкой.", weight: "350 g", price: "30 lei", category: "soups", image: "23.png" },
+      { name: "Borș roșu", nameRu: "Борщ красный", description: "Supă acrișoară cu sfeclă, varză, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Кисловатый суп со свеклой, капустой, картофелем, морковью, луком и зеленью.", weight: "350 g", price: "25 lei", category: "soups", image: soupsImageBase + "bors-rosu.jpg" },
+      { name: "Ciorbă de fasole", nameRu: "Чорба с фасолью", description: "Supă consistentă cu fasole, legume, ceapă, morcov, ardei și verdeață.", descriptionRu: "Сытный суп с фасолью, овощами, луком, морковью, перцем и зеленью.", weight: "350 g", price: "30 lei", category: "soups", image: soupsImageBase + "ciorba-de-fasole.jpg" },
+      { name: "Ciorbă rădăuțeană", nameRu: "Чорба радаутяну", description: "Supă cremoasă cu pui, smântână, usturoi, morcov și ardei.", descriptionRu: "Кремовый суп с курицей, сметаной, чесноком, морковью и перцем.", weight: "350 g", price: "35 lei", category: "soups", image: soupsImageBase + "ciorba-radauteana.jpg" },
+      { name: "Rassolnik", nameRu: "Рассольник", description: "Supă cu castraveți murați, cartofi, morcov, ceapă și arpacaș.", descriptionRu: "Суп с солёными огурцами, картофелем, морковью, луком и перловкой.", weight: "350 g", price: "30 lei", category: "soups", image: soupsImageBase + "rassolnik.jpg" },
+      { name: "Soleanca", nameRu: "Солянка", description: "Supă bogată cu afumături, castraveți murați, măsline, lămâie și verdeață.", descriptionRu: "Насыщенный суп с копчёностями, солёными огурцами, маслинами, лимоном и зеленью.", weight: "350 g", price: "35 lei", category: "soups", image: soupsImageBase + "soleanca.jpg" },
+      { name: "Supă cremă de linte", nameRu: "Крем-суп из чечевицы", description: "Supă fină din linte, legume, usturoi și condimente ușoare.", descriptionRu: "Нежный суп из чечевицы, овощей, чеснока и лёгких специй.", weight: "300 g", price: "30 lei", category: "soups", image: soupsImageBase + "supa-crema-de-linte.jpg" },
+      { name: "Supă cu chifteluțe", nameRu: "Суп с фрикадельками", description: "Supă de casă cu chifteluțe, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Домашний суп с фрикадельками, картофелем, морковью, луком и зеленью.", weight: "350 g", price: "30 lei", category: "soups", image: soupsImageBase + "supa-cu-chiftelute.jpg" },
+      { name: "Supă cu mazăre", nameRu: "Гороховый суп", description: "Supă cu mazăre, legume, cartofi și verdeață, în stil clasic de cafe.", descriptionRu: "Гороховый суп с овощами, картофелем и зеленью в классическом стиле кафе.", weight: "350 g", price: "25 lei", category: "soups", image: soupsImageBase + "supa-cu-mazare.jpg" },
+      { name: "Supă de mazăre (post)", nameRu: "Гороховый суп постный", description: "Supă de post cu mazăre, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Постный гороховый суп с картофелем, морковью, луком и зеленью.", weight: "350 g", price: "25 lei", category: "soups", image: soupsImageBase + "supa-de-mazare-post.jpg" },
+      { name: "Supă Harcio", nameRu: "Суп харчо", description: "Supă aromată cu carne de vită, orez, roșii, usturoi și condimente.", descriptionRu: "Ароматный суп с говядиной, рисом, томатами, чесноком и специями.", weight: "350 g", price: "35 lei", category: "soups", image: soupsImageBase + "supa-harcio.jpg" },
+      { name: "Zeamă", nameRu: "Зама", description: "Supă tradițională cu pui, tăieței, legume, verdeață și gust ușor acrișor.", descriptionRu: "Традиционный суп с курицей, лапшой, овощами, зеленью и лёгкой кислинкой.", weight: "350 g", price: "30 lei", category: "soups", image: soupsImageBase + "zeama.jpg" },
       { name: "Salată Vatra", description: "Legume coapte, brânză de oi și dressing cu ierburi.", weight: "xxx g", price: "xxx lei", category: "salads", image: "25.png" },
       { name: "Salată cu pui", description: "Piept de pui, frunze crocante, crutoane și sos fin.", weight: "xxx g", price: "xxx lei", category: "salads", image: "26.png" },
       { name: "Sarmale", description: "Foi de viță și varză, carne, orez și smântână.", weight: "xxx g", price: "xxx lei", category: "main", image: "27.png" },
@@ -1016,7 +1021,7 @@
       { name: "Plăcintă cu cartofi", description: "Rețetă rustică, coaptă până devine aurie.", weight: "xxx g", price: "xx lei", category: "pies", image: "34.png" },
       { name: "Cușma lui Guguță", description: "Clătite, vișine și cremă fină.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "35.png" },
       { name: "Papanași", description: "Desert cald cu smântână și dulceață.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "36.png" }
-    ].map(dish => ({ ...dish, image: dish.image ? imageBase + dish.image : "" }));
+    ].map(dish => ({ ...dish, image: dish.image && !dish.image.includes("/") ? imageBase + dish.image : (dish.image || "") }));
 
     const drinkGroups = [
       { category: "coffee", title: "Cafea", items: [
@@ -1086,6 +1091,7 @@
       els.foodGrid.innerHTML = filtered.map((dish, index) => `
         <article class="dish-card" data-index="${dishes.indexOf(dish)}">
           <div class="image-box">
+            ${dish.image ? `<img src="${dish.image}" alt="${dishName(dish)}" loading="lazy" onerror="this.hidden=true">` : ""}
             <div class="moderation-label">${t("moderation")}</div>
             <span class="weight">${dish.weight}</span>
           </div>
