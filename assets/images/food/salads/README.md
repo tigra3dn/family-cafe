@@ -9,7 +9,7 @@ Use these exact file names:
 - salata-din-varza.jpg
 - salata-greceasca.jpg
 - salata-hering.jpg
-- salata-olivier.jpg
+- salata-olivie.jpg
 - salata-primavara.jpg
 - salata-vinegret.jpg
 
