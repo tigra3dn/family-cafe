@@ -884,6 +884,7 @@
     const coffeeImageBase = "assets/images/drinks/coffee/";
     const soupsImageBase = "assets/images/food/soups/";
     const saladsImageBase = "assets/images/food/salads/";
+    const piesImageBase = "assets/images/food/pies/";
 
     const translations = {
       ro: {
@@ -1031,8 +1032,17 @@
       { name: "Murături asortate", description: "Castraveți, roșii, varză și ardei murați.", weight: "xxx g", price: "xx lei", category: "starters", image: "30.png" },
       { name: "Cartofi cu rozmarin", description: "Cartofi rumeniți, usturoi și verdeață.", weight: "xxx g", price: "xx lei", category: "sides", image: "31.png" },
       { name: "Legume la grătar", description: "Dovlecel, ardei, vinete și sos de ierburi.", weight: "xxx g", price: "xx lei", category: "sides", image: "32.png" },
-      { name: "Plăcintă cu brânză", description: "Aluat subțire, brânză sărată și mărar.", weight: "xxx g", price: "xxx lei", category: "pies", image: "33.png" },
-      { name: "Plăcintă cu cartofi", description: "Rețetă rustică, coaptă până devine aurie.", weight: "xxx g", price: "xx lei", category: "pies", image: "34.png" },
+      { name: "Placinta cu brinza", nameRu: "Плацинда с брынзой", description: "Umplutură cu brinză, aluat copt și crustă rumenă.", descriptionRu: "Начинка с брынзой, печёное тесто и румяная корочка.", weight: "180 g", price: "18 lei", category: "pies", image: piesImageBase + "placinta-cu-branza.jpg" },
+      { name: "Placinta cu brinza", nameRu: "Плацинда с брынзой", description: "Umplutură cu brinză, aluat copt și crustă rumenă.", descriptionRu: "Начинка с брынзой, печёное тесто и румяная корочка.", weight: "130 g", price: "14,50 lei", category: "pies", image: piesImageBase + "placinta-cu-branza.jpg" },
+      { name: "Placinta cu brinza si spanac", nameRu: "Плацинда с брынзой и шпинатом", description: "Brinză cu spanac, aluat fraged și crustă aurie.", descriptionRu: "Брынза со шпинатом, нежное тесто и золотистая корочка.", weight: "130 g", price: "14,50 lei", category: "pies", image: piesImageBase + "placinta-cu-branza-si-spanac.jpg" },
+      { name: "Placinta cu carne", nameRu: "Плацинда с мясом", description: "Umplutură cu carne, aluat copt și gust consistent.", descriptionRu: "Мясная начинка, печёное тесто и насыщенный вкус.", weight: "180 g", price: "18 lei", category: "pies", image: piesImageBase + "rollini-cu-carne-de-pui.jpg" },
+      { name: "Placinta cu cartof", nameRu: "Плацинда с картофелем", description: "Umplutură de cartof, aluat rumenit și gust de casă.", descriptionRu: "Картофельная начинка, румяное тесто и домашний вкус.", weight: "130 g", price: "12 lei", category: "pies", image: piesImageBase + "rollini-cu-cartofi.jpg" },
+      { name: "Placinta cu cartofi", nameRu: "Плацинда с картофелем", description: "Umplutură de cartofi, aluat rumenit și gust de casă.", descriptionRu: "Картофельная начинка, румяное тесто и домашний вкус.", weight: "180 g", price: "15 lei", category: "pies", image: piesImageBase + "rollini-cu-cartofi.jpg" },
+      { name: "Placinta cu dovleac", nameRu: "Плацинда с тыквой", description: "Umplutură cu dovleac, aluat copt și aromă dulce.", descriptionRu: "Тыквенная начинка, печёное тесто и мягкий сладкий вкус.", weight: "130 g", price: "12 lei", category: "pies", image: piesImageBase + "placinta-cu-dovleac.jpg" },
+      { name: "Placinta cu varza", nameRu: "Плацинда с капустой", description: "Umplutură cu varză, aluat copt și crustă rumenă.", descriptionRu: "Капустная начинка, печёное тесто и румяная корочка.", weight: "130 g", price: "12 lei", category: "pies", image: piesImageBase + "placinta-cu-varza.jpg" },
+      { name: "Placinta cu varza", nameRu: "Плацинда с капустой", description: "Umplutură cu varză, aluat copt și crustă rumenă.", descriptionRu: "Капустная начинка, печёное тесто и румяная корочка.", weight: "180 g", price: "15 lei", category: "pies", image: piesImageBase + "placinta-cu-varza.jpg" },
+      { name: "Placinta cu visina", nameRu: "Плацинда с вишней", description: "Umplutură cu vișină, aluat copt și gust dulce-acrișor.", descriptionRu: "Вишнёвая начинка, печёное тесто и кисло-сладкий вкус.", weight: "130 g", price: "14,50 lei", category: "pies", image: piesImageBase + "placinta-cu-visina.jpg" },
+      { name: "Placinta cu visina", nameRu: "Плацинда с вишней", description: "Umplutură cu vișină, aluat copt și gust dulce-acrișor.", descriptionRu: "Вишнёвая начинка, печёное тесто и кисло-сладкий вкус.", weight: "180 g", price: "18 lei", category: "pies", image: piesImageBase + "placinta-cu-visina.jpg" },
       { name: "Cușma lui Guguță", description: "Clătite, vișine și cremă fină.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "35.png" },
       { name: "Papanași", description: "Desert cald cu smântână și dulceață.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "36.png" }
     ].map(dish => ({ ...dish, image: dish.image && !dish.image.includes("/") ? imageBase + dish.image : (dish.image || "") }));
