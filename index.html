@@ -577,17 +577,6 @@
       white-space: nowrap;
     }
 
-    .cart-button {
-      min-height: 2.65rem;
-      border: 1px solid rgba(255,255,255,.22);
-      border-radius: .85rem;
-      background: linear-gradient(180deg, #4b3832, #30231f);
-      color: #fff;
-      padding: .45rem .9rem;
-      font-weight: 900;
-      box-shadow: inset 0 1px rgba(255,255,255,.08), 0 8px 18px rgba(0,0,0,.22);
-    }
-
     .bottom-actions {
       position: fixed;
       z-index: 20;
@@ -888,7 +877,6 @@
         empty: "Nu am găsit nimic pentru căutarea ta.",
         count: "poziții",
         moderation: "în proces de moderare",
-        cart: "În coș",
         reservation: "Rezervare",
         map: "Hartă",
         categories: {
@@ -920,7 +908,6 @@
         empty: "По вашему запросу ничего не найдено.",
         count: "позиций",
         moderation: "в процессе модерации",
-        cart: "В корзину",
         reservation: "Бронь",
         map: "Карта",
         categories: {
@@ -1103,7 +1090,6 @@
                 <strong class="price">${dish.price}</strong>
                 <span class="dish-volume">${dish.weight}</span>
               </div>
-              <button class="cart-button" type="button">${t("cart")}</button>
             </div>
           </div>
         </article>
@@ -1142,7 +1128,6 @@
                 <strong class="price">${drink.price}</strong>
                 ${drink.volume ? `<span class="drink-volume">${drink.volume}</span>` : ""}
               </div>
-              <button class="cart-button" type="button">${t("cart")}</button>
             </div>
           </div>
         </article>
@@ -1206,7 +1191,6 @@
     });
 
     els.foodGrid.addEventListener("click", event => {
-      if (event.target.closest(".cart-button")) return;
       const card = event.target.closest(".dish-card");
       if (!card) return;
       const dish = dishes[Number(card.dataset.index)];
