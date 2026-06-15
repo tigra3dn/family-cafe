@@ -1,6 +1,6 @@
 # Placinte Images
 
-Local image copies from the Milina catalog for the current placinte menu.
+Real Milina product photos prepared as vertical menu-card images for the current placinte menu.
 
 - placinta-cu-branza.jpg
 - placinta-cu-branza-si-spanac.jpg
