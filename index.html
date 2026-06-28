@@ -887,6 +887,7 @@
     const cocktailsImageBase = "assets/images/drinks/cocktails/";
     const alcoholPremiumImageBase = "assets/images/drinks/alcohol-premium/";
     const wineImageBase = "assets/images/drinks/wine/";
+    const beerImageBase = "assets/images/drinks/beer/";
     const soupsImageBase = "assets/images/food/soups/";
     const saladsImageBase = "assets/images/food/salads/";
     const piesImageBase = "assets/images/food/pies/";
@@ -1126,7 +1127,20 @@
         { name: "Whiskey Johnnie Walker Red Label", volume: "50 ml", price: "60 lei", image: alcoholPremiumImageBase + "whiskey-johnnie-walker-red-label.jpg" }
       ] },
       { category: "alcohol", title: "Alcool", items: [["Vodka", "50 ml", "xx lei"], ["Whisky", "50 ml", "xxx lei"], ["Divin", "50 ml", "xx lei"], ["Vin casei", "150 ml", "xx lei"]] },
-      { category: "beer", title: "Bere", items: [["Bere blondă", "0.5 L", "xx lei"], ["Bere brună", "0.5 L", "xx lei"], ["Bere fără alcool", "0.33 L", "xx lei"]] }
+      { category: "beer", title: "Bere", items: [
+        { name: "BIRRA MORETTI 4,6%", volume: "330 ml", price: "25 lei", image: beerImageBase + "birra-moretti-330ml.jpg" },
+        { name: "BIRRA MORETTI ZERO", volume: "330 ml", price: "25 lei", image: beerImageBase + "birra-moretti-zero-330ml.jpg" },
+        { name: "Garage gust Mandarin", volume: "440 ml", price: "34 lei", image: beerImageBase + "garage-mandarin-440ml.jpg" },
+        { name: "Garage Hard Lemon", volume: "440 ml", price: "34 lei", image: beerImageBase + "garage-hard-lemon-440ml.jpg" },
+        { name: "Garage gust Pineberry Mint", volume: "440 ml", price: "34 lei", image: beerImageBase + "garage-pineberry-mint-440ml.jpg" },
+        { name: "Bere Carlsberg f/alc", volume: "450 ml", price: "37 lei", image: beerImageBase + "carlsberg-alcohol-free-450ml.jpg" },
+        { name: "Bere Carlsberg", volume: "450 ml", price: "37 lei", image: beerImageBase + "carlsberg-450ml.jpg" },
+        { name: "Bere TUBORG Green", volume: "500 ml", price: "37 lei", image: beerImageBase + "tuborg-green-500ml.jpg" },
+        { name: "Bere Livovscoe 1715", volume: "450 ml", price: "28 lei", image: beerImageBase + "livovscoe-1715-450ml.jpg" },
+        { name: "Bere Livovscoe Miake", volume: "450 ml", price: "34 lei", image: beerImageBase + "livovscoe-miake-450ml.jpg" },
+        { name: "Bere KRONENBOURG 1664 Blanc", volume: "460 ml", price: "43 lei", image: beerImageBase + "kronenbourg-1664-blanc-460ml.jpg" },
+        { name: "Bere Livovscoe Svetloe", volume: "480 ml", price: "23 lei", image: beerImageBase + "livovscoe-svetloe-480ml.jpg" }
+      ] }
     ];
 
     const state = { mode: "food", category: "", query: "", lang: "ro" };
