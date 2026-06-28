@@ -882,6 +882,7 @@
   <script>
     const imageBase = "assets/images/menu/";
     const coffeeImageBase = "assets/images/drinks/coffee/";
+    const hotImageBase = "assets/images/drinks/hot/";
     const soupsImageBase = "assets/images/food/soups/";
     const saladsImageBase = "assets/images/food/salads/";
     const piesImageBase = "assets/images/food/pies/";
@@ -895,6 +896,7 @@
         drinksSubtitle: "Alege categoria dorită din meniul de băuturi.",
         search: "Caută în meniu (mâncare și băuturi)...",
         empty: "Nu am găsit nimic pentru căutarea ta.",
+        emptyCategory: "Momentan nu sunt poziții în această categorie.",
         count: "poziții",
         moderation: "în proces de moderare",
         reservation: "Rezervare",
@@ -926,6 +928,7 @@
         drinksSubtitle: "Выберите нужную категорию напитков.",
         search: "Поиск по меню (еда и напитки)...",
         empty: "По вашему запросу ничего не найдено.",
+        emptyCategory: "Пока нет позиций в этой категории.",
         count: "позиций",
         moderation: "в процессе модерации",
         reservation: "Бронь",
@@ -972,9 +975,9 @@
         ["platouri", "Platouri", "layers"]
       ],
       drinks: [
-        ["coffee", "Cafea", "cup"],
         ["hot", "Băuturi calde", "sparkles"],
-        ["drinks", "Băuturi", "glass"],
+        ["coffee", "Cafea", "cup"],
+        ["drinks", "Băuturi", "water"],
         ["juice", "Sucuri", "sparkles"],
         ["cocktails", "Cocktailuri", "wine"],
         ["alcohol", "Alcool", "glass"],
@@ -995,16 +998,17 @@
       cake: '<path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M2 21h20"></path><path d="M7 8v3"></path><path d="M12 8v3"></path><path d="M17 8v3"></path>',
       wine: '<path d="M8 22h8"></path><path d="M7 10h10"></path><path d="M12 15v7"></path><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"></path>',
       glass: '<path d="M8 22h8"></path><path d="M12 11v11"></path><path d="M17 2H7l1 9a4 4 0 0 0 8 0l1-9Z"></path>',
+      water: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12 2 12 2 8 7.9 6 9.5 5 13 5 15a7 7 0 0 0 7 7Z"></path>',
       mug: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>',
       cup: '<path d="M10 2v2"></path><path d="M14 2v2"></path><path d="M16 8h1a4 4 0 1 1 0 8h-1"></path><path d="M4 8h12v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z"></path>',
       sparkles: '<path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4L12 3Z"></path><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14Z"></path>'
     };
 
     const dishes = [
-      { name: "Platou Grill Vatra", description: "Asortiment de preparate la grătar, servire pentru masă.", weight: "xxxx g", price: "xxxx lei", category: "platouri", image: "50.png" },
-      { name: "Platou Moldovenesc", description: "Carne, murături, brânzeturi și gustări tradiționale.", weight: "xxxx g", price: "xxx lei", category: "platouri", image: "58.png" },
-      { name: "Costițe de porc", description: "Costițe rumenite lent, glazură aromată și cartofi copți.", weight: "xxx g", price: "xxx lei", category: "main", image: "52.png" },
-      { name: "Mămăligă cu friptură", description: "Mămăligă cremoasă, brânză, smântână și carne fragedă.", weight: "xxx g", price: "xxx lei", category: "main", image: "54.png" },
+      { name: "Platou Grill Vatra", description: "Asortiment de preparate la grătar, servire pentru masă.", weight: "xxxx g", price: "xxxx lei", category: "platouri", image: "" },
+      { name: "Platou Moldovenesc", description: "Carne, murături, brânzeturi și gustări tradiționale.", weight: "xxxx g", price: "xxx lei", category: "platouri", image: "" },
+      { name: "Costițe de porc", description: "Costițe rumenite lent, glazură aromată și cartofi copți.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
+      { name: "Mămăligă cu friptură", description: "Mămăligă cremoasă, brânză, smântână și carne fragedă.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
       { name: "Borș roșu", nameRu: "Борщ красный", description: "Supă acrișoară cu sfeclă, varză, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Кисловатый суп со свеклой, капустой, картофелем, морковью, луком и зеленью.", weight: "350 g", price: "25 lei", category: "soups", image: soupsImageBase + "bors-rosu.jpg" },
       { name: "Ciorbă de fasole", nameRu: "Чорба с фасолью", description: "Supă consistentă cu fasole, legume, ceapă, morcov, ardei și verdeață.", descriptionRu: "Сытный суп с фасолью, овощами, луком, морковью, перцем и зеленью.", weight: "350 g", price: "30 lei", category: "soups", image: soupsImageBase + "ciorba-de-fasole.jpg" },
       { name: "Ciorbă rădăuțeană", nameRu: "Чорба радаутяну", description: "Supă cremoasă cu pui, smântână, usturoi, morcov și ardei.", descriptionRu: "Кремовый суп с курицей, сметаной, чесноком, морковью и перцем.", weight: "350 g", price: "35 lei", category: "soups", image: soupsImageBase + "ciorba-radauteana.jpg" },
@@ -1026,12 +1030,12 @@
       { name: "Salată Olivie", nameRu: "Салат Оливье", description: "Cartofi, morcov, mazăre, castraveți murați, ou, carne și maioneză.", descriptionRu: "Картофель, морковь, горошек, солёные огурцы, яйцо, мясо и майонез.", weight: "250 g", price: "25 lei", category: "salads", image: saladsImageBase + "salata-olivie.jpg" },
       { name: "Salată Primăvara", nameRu: "Салат Весенний", description: "Legume proaspete, ou, verdeață și dressing delicat.", descriptionRu: "Свежие овощи, яйцо, зелень и нежная заправка.", weight: "220 g", price: "15 lei", category: "salads", image: saladsImageBase + "salata-primavara.jpg" },
       { name: "Salată Vinegret", nameRu: "Салат Винегрет", description: "Sfeclă, cartofi, morcov, mazăre, castraveți murați și ulei aromat.", descriptionRu: "Свёкла, картофель, морковь, горошек, солёные огурцы и ароматное масло.", weight: "220 g", price: "15 lei", category: "salads", image: saladsImageBase + "salata-vinegret.jpg" },
-      { name: "Sarmale", description: "Foi de viță și varză, carne, orez și smântână.", weight: "xxx g", price: "xxx lei", category: "main", image: "27.png" },
-      { name: "Tocană tradițională", description: "Carne înăbușită cu legume și sos dens de casă.", weight: "xxx g", price: "xxx lei", category: "main", image: "28.png" },
-      { name: "Brânză de oi", description: "Brânzeturi locale, roșii și pâine caldă.", weight: "xxx g", price: "xxx lei", category: "starters", image: "29.png" },
-      { name: "Murături asortate", description: "Castraveți, roșii, varză și ardei murați.", weight: "xxx g", price: "xx lei", category: "starters", image: "30.png" },
-      { name: "Cartofi cu rozmarin", description: "Cartofi rumeniți, usturoi și verdeață.", weight: "xxx g", price: "xx lei", category: "sides", image: "31.png" },
-      { name: "Legume la grătar", description: "Dovlecel, ardei, vinete și sos de ierburi.", weight: "xxx g", price: "xx lei", category: "sides", image: "32.png" },
+      { name: "Sarmale", description: "Foi de viță și varză, carne, orez și smântână.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
+      { name: "Tocană tradițională", description: "Carne înăbușită cu legume și sos dens de casă.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
+      { name: "Brânză de oi", description: "Brânzeturi locale, roșii și pâine caldă.", weight: "xxx g", price: "xxx lei", category: "starters", image: "" },
+      { name: "Murături asortate", description: "Castraveți, roșii, varză și ardei murați.", weight: "xxx g", price: "xx lei", category: "starters", image: "" },
+      { name: "Cartofi cu rozmarin", description: "Cartofi rumeniți, usturoi și verdeață.", weight: "xxx g", price: "xx lei", category: "sides", image: "" },
+      { name: "Legume la grătar", description: "Dovlecel, ardei, vinete și sos de ierburi.", weight: "xxx g", price: "xx lei", category: "sides", image: "" },
       { name: "Placinta cu brinza", nameRu: "Плацинда с брынзой", description: "Umplutură cu brinză, aluat copt și crustă rumenă.", descriptionRu: "Начинка с брынзой, печёное тесто и румяная корочка.", weight: "180 g", price: "18 lei", category: "pies", image: piesImageBase + "placinta-cu-branza.jpg" },
       { name: "Placinta cu brinza", nameRu: "Плацинда с брынзой", description: "Umplutură cu brinză, aluat copt și crustă rumenă.", descriptionRu: "Начинка с брынзой, печёное тесто и румяная корочка.", weight: "130 g", price: "14,50 lei", category: "pies", image: piesImageBase + "placinta-cu-branza.jpg" },
       { name: "Placinta cu brinza si spanac", nameRu: "Плацинда с брынзой и шпинатом", description: "Brinză cu spanac, aluat fraged și crustă aurie.", descriptionRu: "Брынза со шпинатом, нежное тесто и золотистая корочка.", weight: "130 g", price: "14,50 lei", category: "pies", image: piesImageBase + "placinta-cu-branza-si-spanac.jpg" },
@@ -1043,19 +1047,22 @@
       { name: "Placinta cu varza", nameRu: "Плацинда с капустой", description: "Umplutură cu varză, aluat copt și crustă rumenă.", descriptionRu: "Капустная начинка, печёное тесто и румяная корочка.", weight: "180 g", price: "15 lei", category: "pies", image: piesImageBase + "placinta-cu-varza-180.jpg" },
       { name: "Placinta cu visina", nameRu: "Плацинда с вишней", description: "Umplutură cu vișină, aluat copt și gust dulce-acrișor.", descriptionRu: "Вишнёвая начинка, печёное тесто и кисло-сладкий вкус.", weight: "130 g", price: "14,50 lei", category: "pies", image: piesImageBase + "placinta-cu-visina.jpg" },
       { name: "Placinta cu visina", nameRu: "Плацинда с вишней", description: "Umplutură cu vișină, aluat copt și gust dulce-acrișor.", descriptionRu: "Вишнёвая начинка, печёное тесто и кисло-сладкий вкус.", weight: "180 g", price: "18 lei", category: "pies", image: piesImageBase + "placinta-cu-visina.jpg" },
-      { name: "Cușma lui Guguță", description: "Clătite, vișine și cremă fină.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "35.png" },
-      { name: "Papanași", description: "Desert cald cu smântână și dulceață.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "36.png" }
+      { name: "Cușma lui Guguță", description: "Clătite, vișine și cremă fină.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "" },
+      { name: "Papanași", description: "Desert cald cu smântână și dulceață.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "" }
     ].map(dish => ({ ...dish, image: dish.image && !dish.image.includes("/") ? imageBase + dish.image : (dish.image || "") }));
 
     const drinkGroups = [
-      { category: "coffee", title: "Cafea", items: [
-        { name: "Americano", nameRu: "Американо", description: "Boabe de cafea, apă.", descriptionRu: "Кофейные зерна, вода.", volume: "100 ml", price: "xx lei", image: coffeeImageBase + "americano.jpg" },
-        { name: "Espresso", nameRu: "Эспрессо", description: "Boabe de cafea, apă.", descriptionRu: "Кофейные зерна, вода.", volume: "30 ml", price: "xx lei", image: coffeeImageBase + "espresso.jpg" },
-        { name: "Cappuccino", nameRu: "Капучино", description: "Espresso, lapte.", descriptionRu: "Эспрессо, молоко.", volume: "150 ml", price: "xx lei", image: coffeeImageBase + "cappuccino.jpg" },
-        { name: "Coffee Latte", nameRu: "Кофе Латте", description: "Boabe de cafea, lapte.", descriptionRu: "Кофейные зерна, молоко.", volume: "250 ml", price: "xx lei", image: coffeeImageBase + "coffee-latte.jpg" },
-        { name: "Caramel Ice Latte", nameRu: "Карамель Айс Латте", description: "Espresso, sirop, lapte, gheață.", descriptionRu: "Эспрессо, сироп, молоко, лёд.", volume: "350 ml", price: "xx lei", image: coffeeImageBase + "caramel-ice-latte.jpg" }
+      { category: "coffee", title: "Cafea", items: [] },
+      { category: "hot", title: "Băuturi calde", items: [
+        { name: "Americano", nameRu: "Американо", description: "Boabe de cafea, apă.", descriptionRu: "Кофейные зерна, вода.", volume: "100 ml", price: "17,00 lei", image: coffeeImageBase + "americano.jpg" },
+        { name: "Espresso", nameRu: "Эспрессо", description: "Boabe de cafea, apă.", descriptionRu: "Кофейные зерна, вода.", volume: "30 ml", price: "15,00 lei", image: coffeeImageBase + "espresso.jpg" },
+        { name: "Cappucino", nameRu: "Капучино", description: "Espresso, lapte.", descriptionRu: "Эспрессо, молоко.", volume: "150 ml", price: "20,00 lei", image: coffeeImageBase + "cappuccino.jpg" },
+        { name: "Latte", nameRu: "Латте", description: "Boabe de cafea, lapte.", descriptionRu: "Кофейные зерна, молоко.", volume: "250 ml", price: "25,00 lei", image: coffeeImageBase + "coffee-latte.jpg" },
+        { name: "Ice Latte", nameRu: "Айс Латте", description: "Espresso, sirop, lapte, gheață.", descriptionRu: "Эспрессо, сироп, молоко, лёд.", volume: "350 ml", price: "25,00 lei", image: coffeeImageBase + "caramel-ice-latte.jpg" },
+        ["Ceai de cătină", "400 ml", "xx lei"],
+        { name: "Ceai in asortiment", nameRu: "Чай в ассортименте", description: "Ceai de plante, miere, mentă, portocală, cătină și sirop de zahăr.", descriptionRu: "Травяной чай, мёд, мята, апельсин, облепиха и сахарный сироп.", volume: "400 ml", price: "25,00 lei", image: hotImageBase + "ceai-in-assortiment.jpg" },
+        ["Ciocolată caldă", "250 ml", "xx lei"]
       ] },
-      { category: "hot", title: "Băuturi calde", items: [["Ceai de cătină", "400 ml", "xx lei"], ["Ceai în asortiment", "400 ml", "xx lei"], ["Ciocolată caldă", "250 ml", "xx lei"]] },
       { category: "drinks", title: "Băuturi", items: [["Apă plată", "0.33 L", "xx lei"], ["Apă minerală", "0.33 L", "xx lei"], ["Coca-Cola", "0.25 L", "xx lei"], ["Compot de casă", "0.5 L", "xx lei"]] },
       { category: "juice", title: "Sucuri", items: [["Suc de portocale", "250 ml", "xx lei"], ["Suc de mere", "250 ml", "xx lei"], ["Limonadă", "400 ml", "xx lei"]] },
       { category: "cocktails", title: "Cocktailuri", items: [["Mojito", "300 ml", "xx lei"], ["Aperol Spritz", "300 ml", "xxx lei"], ["Gin Tonic", "300 ml", "xxx lei"]] },
@@ -1063,7 +1070,7 @@
       { category: "beer", title: "Bere", items: [["Bere blondă", "0.5 L", "xx lei"], ["Bere brună", "0.5 L", "xx lei"], ["Bere fără alcool", "0.33 L", "xx lei"]] }
     ];
 
-    const state = { mode: "food", category: "all", query: "", lang: "ro" };
+    const state = { mode: "food", category: "", query: "", lang: "ro" };
 
     const els = {
       categories: document.querySelector("#categories"),
@@ -1085,8 +1092,38 @@
       return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${icons[name] || icons.grid}</svg>`;
     }
 
-    function renderCategories() {
-      els.categories.innerHTML = categories[state.mode].map(([key, label, iconName]) => `
+    function dishHasImage(dish) {
+      return Boolean(dish.image);
+    }
+
+    function drinkItemHasImage(item) {
+      return !Array.isArray(item) && Boolean(item.image);
+    }
+
+    function drinksFromGroup(group) {
+      return group.items
+        .filter(drinkItemHasImage)
+        .map(item => ({ ...item, category: group.category, groupTitle: group.title }));
+    }
+
+    function isVisibleEmptyCategory(mode, key) {
+      return mode === "drinks" && key === "drinks";
+    }
+
+    function categoryHasImages(mode, key) {
+      if (mode === "food") {
+        return dishes.some(dish => dish.category === key && dishHasImage(dish));
+      }
+      const group = drinkGroups.find(item => item.category === key);
+      return Boolean(group && group.items.some(drinkItemHasImage));
+    }
+
+    function availableCategories(mode = state.mode) {
+      return categories[mode].filter(([key]) => categoryHasImages(mode, key) || isVisibleEmptyCategory(mode, key));
+    }
+
+    function renderCategories(visibleCategories = availableCategories()) {
+      els.categories.innerHTML = visibleCategories.map(([key, label, iconName]) => `
         <button type="button" data-category="${key}" class="${state.category === key ? "active" : ""}">
           ${icon(iconName)}<span>${categoryLabel(key, label)}</span>
         </button>
@@ -1105,11 +1142,16 @@
       return state.lang === "ru" && dish.descriptionRu ? dish.descriptionRu : dish.description;
     }
 
+    function emptyText() {
+      return state.query.trim() ? t("empty") : t("emptyCategory");
+    }
+
     function renderFood() {
       const filtered = dishes.filter(dish => {
-        const categoryOk = state.category === "all" || dish.category === state.category;
+        const imageOk = dishHasImage(dish);
+        const categoryOk = dish.category === state.category;
         const queryOk = !state.query || matches(`${dish.name} ${dish.nameRu || ""} ${dish.description} ${dish.descriptionRu || ""} ${dish.price}`);
-        return categoryOk && queryOk;
+        return imageOk && categoryOk && queryOk;
       });
 
       els.foodGrid.innerHTML = filtered.map((dish, index) => `
@@ -1133,20 +1175,13 @@
       `).join("");
 
       els.counter.textContent = `${filtered.length} ${t("count")}`;
+      els.empty.textContent = emptyText();
       els.empty.style.display = filtered.length ? "none" : "block";
     }
 
     function renderDrinks() {
-      const drinks = drinkGroups.flatMap(group => (
-        group.items.map(item => {
-          if (Array.isArray(item)) {
-            const [name, volume, price] = item;
-            return { name, volume, price, description: categoryLabel(group.category, group.title), category: group.category, groupTitle: group.title };
-          }
-          return { ...item, category: group.category, groupTitle: group.title };
-        })
-      )).filter(drink => {
-          const categoryOk = state.category === "all" || drink.category === state.category;
+      const drinks = drinkGroups.flatMap(group => drinksFromGroup(group)).filter(drink => {
+          const categoryOk = drink.category === state.category;
           const queryOk = !state.query || matches(`${drink.groupTitle} ${drink.name} ${drink.description || ""} ${drink.volume || ""} ${drink.price}`);
           return categoryOk && queryOk;
       });
@@ -1171,6 +1206,7 @@
       `).join("");
 
       els.counter.textContent = `${drinks.length} ${t("count")}`;
+      els.empty.textContent = emptyText();
       els.empty.style.display = drinks.length ? "none" : "block";
     }
 
@@ -1189,12 +1225,18 @@
 
     function render() {
       renderStaticText();
-      renderCategories();
+      const visibleCategories = availableCategories(state.mode);
+      if (!visibleCategories.some(([key]) => key === state.category)) {
+        state.category = visibleCategories[0]?.[0] || "";
+      }
+      renderCategories(visibleCategories);
       const foodMode = state.mode === "food";
       els.foodGrid.hidden = !foodMode;
       els.drinkList.hidden = foodMode;
       const activeCategory = categories[state.mode].find(([key]) => key === state.category);
-      els.title.textContent = activeCategory ? categoryLabel(activeCategory[0], activeCategory[1]) : (foodMode ? t("foodTitle") : t("drinksMode"));
+      els.title.textContent = activeCategory
+        ? categoryLabel(activeCategory[0], activeCategory[1])
+        : (foodMode ? t("foodTitle") : t("drinksMode"));
       els.subtitle.textContent = foodMode
         ? t("foodSubtitle")
         : t("drinksSubtitle");
@@ -1205,7 +1247,7 @@
       button.addEventListener("click", () => {
         document.querySelectorAll("[data-mode]").forEach(item => item.classList.toggle("active", item === button));
         state.mode = button.dataset.mode;
-        state.category = categories[state.mode][0][0];
+        state.category = availableCategories(state.mode)[0]?.[0] || "";
         render();
       });
     });
