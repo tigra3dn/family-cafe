@@ -886,6 +886,7 @@
     const bauturiImageBase = "assets/images/drinks/bauturi/";
     const cocktailsImageBase = "assets/images/drinks/cocktails/";
     const alcoholPremiumImageBase = "assets/images/drinks/alcohol-premium/";
+    const wineImageBase = "assets/images/drinks/wine/";
     const soupsImageBase = "assets/images/food/soups/";
     const saladsImageBase = "assets/images/food/salads/";
     const piesImageBase = "assets/images/food/pies/";
@@ -920,6 +921,7 @@
           juice: "Sucuri",
           cocktails: "Cocktail-uri",
           alcoholPremium: "Alcool Premium",
+          wine: "Vin",
           alcohol: "Alcool",
           beer: "Bere"
         }
@@ -953,6 +955,7 @@
           juice: "Соки",
           cocktails: "Коктейли",
           alcoholPremium: "Премиальный алкоголь",
+          wine: "Вино",
           alcohol: "Алкоголь",
           beer: "Пиво"
         }
@@ -984,6 +987,7 @@
         ["coffee", "Cafea", "cup"],
         ["drinks", "Băuturi", "water"],
         ["juice", "Sucuri", "sparkles"],
+        ["wine", "Vin", "wine"],
         ["cocktails", "Cocktail-uri", "wine"],
         ["alcoholPremium", "Alcool Premium", "glass"],
         ["alcohol", "Alcool", "glass"],
@@ -1094,6 +1098,9 @@
         { name: "Suc in assortiment pahar", description: "Suc Santal in assortiment la pahar.", volume: "200 ml", price: "25,00 lei", image: bauturiImageBase + "santal-suc-assortiment-pahar-200.jpg" }
       ] },
       { category: "juice", title: "Sucuri", items: [["Suc de portocale", "250 ml", "xx lei"], ["Suc de mere", "250 ml", "xx lei"], ["Limonadă", "400 ml", "xx lei"]] },
+      { category: "wine", title: "Vin", items: [
+        { name: "Vin alb", description: "Alergeni: conține sulfiți.", volume: "200 ml", price: "25 lei", image: wineImageBase + "vin-alb.jpg" }
+      ] },
       { category: "cocktails", title: "Cocktail-uri", items: [
         { name: "Cocktail Aperol Spritz", description: "Vin spumant, Aperol, apă minerală, portocală, gheață.", volume: "330 ml", price: "60 lei", image: cocktailsImageBase + "aperol-spritz.jpg" },
         { name: "Cocktail Mojito", description: "Lime, mentă, sirop de zahăr, rom Bacardi Superior, apă minerală, gheață.", volume: "330 ml", price: "50 lei", image: cocktailsImageBase + "mojito.jpg" },
