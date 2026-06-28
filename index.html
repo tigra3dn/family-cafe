@@ -1237,7 +1237,9 @@
           return categoryOk && queryOk;
       });
 
-      els.drinkList.innerHTML = drinks.map(drink => `
+      els.drinkList.innerHTML = drinks.map(drink => {
+        const description = state.lang === "ru" && drink.descriptionRu ? drink.descriptionRu : (drink.description || "");
+        return `
         <article class="drink-card">
           <div class="drink-image">
             ${drink.image ? `<img src="${drink.image}" alt="${drink.name}" loading="lazy" onerror="this.hidden=true">` : ""}
@@ -1245,7 +1247,7 @@
           </div>
           <div class="drink-info">
             <h3>${state.lang === "ru" && drink.nameRu ? drink.nameRu : drink.name}</h3>
-            <p>${state.lang === "ru" && drink.descriptionRu ? drink.descriptionRu : (drink.description || categoryLabel(drink.category, drink.groupTitle))}</p>
+            ${description ? `<p>${description}</p>` : ""}
             <div class="drink-bottom">
               <div class="drink-meta">
                 <strong class="price">${drink.price}</strong>
@@ -1254,7 +1256,8 @@
             </div>
           </div>
         </article>
-      `).join("");
+      `;
+      }).join("");
 
       els.counter.textContent = `${drinks.length} ${t("count")}`;
       els.empty.textContent = emptyText();
