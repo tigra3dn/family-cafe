@@ -885,6 +885,7 @@
     const hotImageBase = "assets/images/drinks/hot/";
     const bauturiImageBase = "assets/images/drinks/bauturi/";
     const cocktailsImageBase = "assets/images/drinks/cocktails/";
+    const alcoholPremiumImageBase = "assets/images/drinks/alcohol-premium/";
     const soupsImageBase = "assets/images/food/soups/";
     const saladsImageBase = "assets/images/food/salads/";
     const piesImageBase = "assets/images/food/pies/";
@@ -918,6 +919,7 @@
           drinks: "Băuturi",
           juice: "Sucuri",
           cocktails: "Cocktail-uri",
+          alcoholPremium: "Alcool Premium",
           alcohol: "Alcool",
           beer: "Bere"
         }
@@ -950,6 +952,7 @@
           drinks: "Напитки",
           juice: "Соки",
           cocktails: "Коктейли",
+          alcoholPremium: "Премиальный алкоголь",
           alcohol: "Алкоголь",
           beer: "Пиво"
         }
@@ -982,6 +985,7 @@
         ["drinks", "Băuturi", "water"],
         ["juice", "Sucuri", "sparkles"],
         ["cocktails", "Cocktail-uri", "wine"],
+        ["alcoholPremium", "Alcool Premium", "glass"],
         ["alcohol", "Alcool", "glass"],
         ["beer", "Bere", "mug"],
       ]
@@ -1097,6 +1101,21 @@
         { name: "Cocktail Blue Lagoon", description: "Sprite, sirop Blue Curacao, lămâie, rom, gheață.", volume: "330 ml", price: "60 lei", image: cocktailsImageBase + "blue-lagoon.jpg" },
         { name: "Portocala Ice", description: "Piure de portocale, suc de portocale, Sprite, mentă, gheață.", volume: "400 ml", price: "40 lei", image: cocktailsImageBase + "portocala-ice.jpg" },
         { name: "MilkShake Oreo", description: "Biscuiți Oreo (90-100 gr.), înghețată de vanilie (220 gr.), lapte (150 ml.), frișcă, biscuiți Oreo fărâmițați.", volume: "400 ml", price: "35 lei", image: cocktailsImageBase + "milkshake-oreo.jpg" }
+      ] },
+      { category: "alcoholPremium", title: "Alcool Premium", items: [
+        { name: "Absinthe", volume: "30 ml", price: "50 lei", image: alcoholPremiumImageBase + "absinthe.jpg" },
+        { name: "Baileys", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "baileys.jpg" },
+        { name: "Jagermermeister", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "jagermermeister.jpg" },
+        { name: "Jim Beam", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "jim-beam.jpg" },
+        { name: "Rum Bacardi Carta Blanca", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "rum-bacardi-carta-blanca.jpg" },
+        { name: "Rum Bacardi Carta Negra", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "rum-bacardi-carta-negra.jpg" },
+        { name: "Sheridan's", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "sheridans.jpg" },
+        { name: "Tequila Jose", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "tequila-jose.jpg" },
+        { name: "Vermouth Martini Bianco", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "vermouth-martini-bianco.jpg" },
+        { name: "Vermouth Martini Rosso", volume: "50 ml", price: "50 lei", image: alcoholPremiumImageBase + "vermouth-martini-rosso.jpg" },
+        { name: "Vodka Finlandia", volume: "50 ml", price: "60 lei", image: alcoholPremiumImageBase + "vodka-finlandia.jpg" },
+        { name: "Whiskey Jack Daniels", volume: "50 ml", price: "60 lei", image: alcoholPremiumImageBase + "whiskey-jack-daniels.jpg" },
+        { name: "Whiskey Johnnie Walker Red Label", volume: "50 ml", price: "60 lei", image: alcoholPremiumImageBase + "whiskey-johnnie-walker-red-label.jpg" }
       ] },
       { category: "alcohol", title: "Alcool", items: [["Vodka", "50 ml", "xx lei"], ["Whisky", "50 ml", "xxx lei"], ["Divin", "50 ml", "xx lei"], ["Vin casei", "150 ml", "xx lei"]] },
       { category: "beer", title: "Bere", items: [["Bere blondă", "0.5 L", "xx lei"], ["Bere brună", "0.5 L", "xx lei"], ["Bere fără alcool", "0.33 L", "xx lei"]] }
