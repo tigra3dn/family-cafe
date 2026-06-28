@@ -916,7 +916,7 @@
           hot: "Băuturi calde",
           drinks: "Băuturi",
           juice: "Sucuri",
-          cocktails: "Cocktailuri",
+          cocktails: "Cocktail-uri",
           alcohol: "Alcool",
           beer: "Bere"
         }
@@ -980,7 +980,7 @@
         ["coffee", "Cafea", "cup"],
         ["drinks", "Băuturi", "water"],
         ["juice", "Sucuri", "sparkles"],
-        ["cocktails", "Cocktailuri", "wine"],
+        ["cocktails", "Cocktail-uri", "wine"],
         ["alcohol", "Alcool", "glass"],
         ["beer", "Bere", "mug"],
       ]
@@ -1089,7 +1089,7 @@
         { name: "Suc in assortiment pahar", description: "Suc Santal in assortiment la pahar.", volume: "200 ml", price: "25,00 lei", image: bauturiImageBase + "santal-suc-assortiment-pahar-200.jpg" }
       ] },
       { category: "juice", title: "Sucuri", items: [["Suc de portocale", "250 ml", "xx lei"], ["Suc de mere", "250 ml", "xx lei"], ["Limonadă", "400 ml", "xx lei"]] },
-      { category: "cocktails", title: "Cocktailuri", items: [["Mojito", "300 ml", "xx lei"], ["Aperol Spritz", "300 ml", "xxx lei"], ["Gin Tonic", "300 ml", "xxx lei"]] },
+      { category: "cocktails", title: "Cocktail-uri", items: [] },
       { category: "alcohol", title: "Alcool", items: [["Vodka", "50 ml", "xx lei"], ["Whisky", "50 ml", "xxx lei"], ["Divin", "50 ml", "xx lei"], ["Vin casei", "150 ml", "xx lei"]] },
       { category: "beer", title: "Bere", items: [["Bere blondă", "0.5 L", "xx lei"], ["Bere brună", "0.5 L", "xx lei"], ["Bere fără alcool", "0.33 L", "xx lei"]] }
     ];
@@ -1131,7 +1131,7 @@
     }
 
     function isVisibleEmptyCategory(mode, key) {
-      return mode === "drinks" && key === "drinks";
+      return mode === "drinks" && (key === "drinks" || key === "cocktails");
     }
 
     function categoryHasImages(mode, key) {
