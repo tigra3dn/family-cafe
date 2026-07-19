@@ -911,10 +911,11 @@
         categories: {
           salads: "Salate",
           soups: "Supe",
-          main: "Feluri principale",
+          main: "Bucate calde",
           sides: "Garnituri",
           pizza: "Pizza",
-          starters: "Aperitive",
+          starters: "Gustări",
+          beerSnacks: "Gustări la bere",
           pies: "Plăcinte",
           desserts: "Deserturi",
           platouri: "Platouri",
@@ -945,11 +946,12 @@
         categories: {
           salads: "Салаты",
           soups: "Супы",
-          main: "Основное",
+          main: "Горячие блюда",
           sides: "Гарниры",
           pizza: "Пицца",
-          starters: "Закуски",
-          pies: "Плацинды",
+          starters: "Закуска",
+          beerSnacks: "Закуска к пиву",
+          pies: "Плацинты",
           desserts: "Десерты",
           platouri: "Плато",
           coffee: "Кофе",
@@ -975,15 +977,14 @@
 
     const categories = {
       food: [
-        ["salads", "Salate", "salad"],
         ["soups", "Supe", "soup"],
-        ["main", "Feluri principale", "chef"],
-        ["sides", "Garnituri", "carrot"],
+        ["salads", "Salate", "salad"],
+        ["main", "Bucate calde", "chef"],
         ["pizza", "Pizza", "pizza"],
-        ["starters", "Aperitive", "fork"],
         ["pies", "Plăcinte", "cookie"],
-        ["desserts", "Deserturi", "cake"],
-        ["platouri", "Platouri", "layers"]
+        ["starters", "Gustări", "fork"],
+        ["beerSnacks", "Gustări la bere", "mug"],
+        ["desserts", "Deserturi", "cake"]
       ],
       drinks: [
         ["hot", "Băuturi calde", "sparkles"],
@@ -1207,7 +1208,9 @@
     }
 
     function isVisibleEmptyCategory(mode, key) {
-      return mode === "drinks" && (key === "drinks" || key === "cocktails");
+      const visibleEmptyFoodCategories = ["main", "pizza", "starters", "beerSnacks", "desserts"];
+      return (mode === "food" && visibleEmptyFoodCategories.includes(key))
+        || (mode === "drinks" && (key === "drinks" || key === "cocktails"));
     }
 
     function categoryHasImages(mode, key) {
