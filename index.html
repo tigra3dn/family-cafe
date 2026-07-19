@@ -878,6 +878,7 @@
     const beerImageBase = "assets/images/drinks/beer/";
     const soupsImageBase = "assets/images/food/soups/";
     const saladsImageBase = "assets/images/food/salads/";
+    const mainImageBase = "assets/images/food/main/";
     const piesImageBase = "assets/images/food/pies/";
 
     const translations = {
@@ -1007,8 +1008,18 @@
     const dishes = [
       { name: "Platou Grill Vatra", description: "Asortiment de preparate la grătar, servire pentru masă.", weight: "xxxx g", price: "xxxx lei", category: "platouri", image: "" },
       { name: "Platou Moldovenesc", description: "Carne, murături, brânzeturi și gustări tradiționale.", weight: "xxxx g", price: "xxx lei", category: "platouri", image: "" },
-      { name: "Costițe de porc", description: "Costițe rumenite lent, glazură aromată și cartofi copți.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
-      { name: "Mămăligă cu friptură", description: "Mămăligă cremoasă, brânză, smântână și carne fragedă.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
+      { name: "Aripi de pui", nameRu: "Куриные крылышки", description: "Aripioare rumenite, servite cald cu sos.", descriptionRu: "Румяные куриные крылышки, подаются горячими с соусом.", price: "60,00 lei", category: "main", image: mainImageBase + "aripi-de-pui.jpg" },
+      { name: "Cirnaciori cu cartofi fri", nameRu: "Колбаски с картофелем фри", description: "Cârnăciori rumeniți, cartofi fri și sos.", descriptionRu: "Румяные колбаски, картофель фри и соус.", price: "95,00 lei", category: "main", image: mainImageBase + "cirnaciori-cu-cartofi-fri.jpg" },
+      { name: "Coltunasi cu cartofi", nameRu: "Колтунаши с картофелем", description: "Colțunași cu cartofi, smântână și verdeață.", descriptionRu: "Колтунаши с картофелем, сметаной и зеленью.", price: "50,00 lei", category: "main", image: mainImageBase + "coltunasi-cu-cartofi.jpg" },
+      { name: "Frigarui de pui", nameRu: "Куриный шашлык", description: "Frigărui de pui la grătar, servite cald.", descriptionRu: "Куриный шашлык на гриле, подается горячим.", price: "75,00 lei", category: "main", image: mainImageBase + "frigarui-de-pui.jpg" },
+      { name: "Frigarui de porc", nameRu: "Свиной шашлык", description: "Frigărui de porc la grătar, servite cald.", descriptionRu: "Свиной шашлык на гриле, подается горячим.", price: "85,00 lei", category: "main", image: mainImageBase + "frigarui-de-porc.jpg" },
+      { name: "Mamaliga cu carne", nameRu: "Мамалыга с мясом", description: "Mămăligă cu carne, brânză și smântână.", descriptionRu: "Мамалыга с мясом, брынзой и сметаной.", price: "75,00 lei", category: "main", image: mainImageBase + "mamaliga-cu-carne.jpg" },
+      { name: "Maxi Chiken Fingers", nameRu: "Maxi Chicken Fingers", description: "Fâșii crocante de pui, cartofi fri și sos.", descriptionRu: "Крупные хрустящие куриные стрипсы, картофель фри и соус.", price: "75,00 lei", category: "main", image: mainImageBase + "maxi-chiken-fingers.jpg" },
+      { name: "Mici cu cartofi fri", nameRu: "Мичи с картофелем фри", description: "Mici rumeniți la grătar, cartofi fri și sos.", descriptionRu: "Мичи на гриле, картофель фри и соус.", price: "95,00 lei", category: "main", image: mainImageBase + "mici-cu-cartofi-fri.jpg" },
+      { name: "Mini Chiken Fingers", nameRu: "Mini Chicken Fingers", description: "Fâșii mini crocante de pui, servite cu sos.", descriptionRu: "Мини хрустящие куриные стрипсы, подаются с соусом.", price: "75,00 lei", category: "main", image: mainImageBase + "mini-chiken-fingers.jpg" },
+      { name: "Nuggets", nameRu: "Наггетсы", description: "Bucăți crocante de pui, servite cu sos.", descriptionRu: "Хрустящие куриные наггетсы, подаются с соусом.", price: "49,00 lei", category: "main", image: mainImageBase + "nuggets.jpg" },
+      { name: "Pelmeni cu carne de vita si porc", nameRu: "Пельмени с говядиной и свининой", description: "Pelmeni cu carne de vită și porc, smântână și verdeață.", descriptionRu: "Пельмени с говядиной и свининой, сметаной и зеленью.", price: "60,00 lei", category: "main", image: mainImageBase + "pelmeni-cu-carne-de-vita-si-porc.jpg" },
+      { name: "Steak de pui", nameRu: "Куриный стейк", description: "Steak de pui la grătar, servit cu garnitură.", descriptionRu: "Куриный стейк на гриле, подается с гарниром.", price: "110,00 lei", category: "main", image: mainImageBase + "steak-de-pui.jpg" },
       { name: "Borș roșu", nameRu: "Борщ красный", description: "Supă acrișoară cu sfeclă, varză, cartofi, morcov, ceapă și verdeață.", descriptionRu: "Кисловатый суп со свеклой, капустой, картофелем, морковью, луком и зеленью.", weight: "350 g", price: "25 lei", category: "soups", image: soupsImageBase + "bors-rosu.jpg" },
       { name: "Soleanca", nameRu: "Солянка", description: "Supă bogată cu afumături, castraveți murați, măsline, lămâie și verdeață.", descriptionRu: "Насыщенный суп с копчёностями, солёными огурцами, маслинами, лимоном и зеленью.", weight: "350 g", price: "35 lei", category: "soups", image: soupsImageBase + "soleanca.jpg" },
       { name: "Zeamă", nameRu: "Зама", description: "Supă tradițională cu pui, tăieței, legume, verdeață și gust ușor acrișor.", descriptionRu: "Традиционный суп с курицей, лапшой, овощами, зеленью и лёгкой кислинкой.", weight: "350 g", price: "30 lei", category: "soups", image: soupsImageBase + "zeama.jpg" },
@@ -1016,8 +1027,6 @@
       { name: "Salata Cezar cu crevete", nameRu: "Салат Цезарь с креветками", description: "Salată iceberg, creveți, sos Caesar, roșii cherry, cașcaval parmigiano și crutoane.", descriptionRu: "Салат айсберг, креветки, соус Caesar, помидоры черри, сыр пармезан и крутоны.", weight: "270 g", price: "125,00 lei", category: "salads", image: saladsImageBase + "salata-cezar-cu-crevete.jpg" },
       { name: "Salata Cezar cu pui", nameRu: "Салат Цезарь с курицей", description: "Salată iceberg, piept de pui, sos Caesar, roșii cherry, cașcaval parmigiano și crutoane.", descriptionRu: "Салат айсберг, куриная грудка, соус Caesar, помидоры черри, сыр пармезан и крутоны.", weight: "280 g", price: "100,00 lei", category: "salads", image: saladsImageBase + "salata-cezar-cu-pui.jpg" },
       { name: "Salata Greceasca", nameRu: "Греческий салат", description: "Roșii, castraveți, ardei, măsline, brânză feta și ulei de măsline.", descriptionRu: "Помидоры, огурцы, перец, маслины, сыр фета и оливковое масло.", weight: "250 g", price: "70,00 lei", category: "salads", image: saladsImageBase + "salata-greceasca.jpg" },
-      { name: "Sarmale", description: "Foi de viță și varză, carne, orez și smântână.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
-      { name: "Tocană tradițională", description: "Carne înăbușită cu legume și sos dens de casă.", weight: "xxx g", price: "xxx lei", category: "main", image: "" },
       { name: "Brânză de oi", description: "Brânzeturi locale, roșii și pâine caldă.", weight: "xxx g", price: "xxx lei", category: "starters", image: "" },
       { name: "Murături asortate", description: "Castraveți, roșii, varză și ardei murați.", weight: "xxx g", price: "xx lei", category: "starters", image: "" },
       { name: "Cartofi cu rozmarin", description: "Cartofi rumeniți, usturoi și verdeață.", weight: "xxx g", price: "xx lei", category: "sides", image: "" },
@@ -1225,7 +1234,7 @@
       const filtered = dishes.filter(dish => {
         const imageOk = dishHasImage(dish);
         const categoryOk = dish.category === state.category;
-        const queryOk = !state.query || matches(`${dish.name} ${dish.nameRu || ""} ${dish.description} ${dish.descriptionRu || ""} ${dish.price}`);
+        const queryOk = !state.query || matches(`${dish.name} ${dish.nameRu || ""} ${dish.description || ""} ${dish.descriptionRu || ""} ${dish.weight || ""} ${dish.price}`);
         return imageOk && categoryOk && queryOk;
       });
 
@@ -1237,11 +1246,11 @@
           </div>
           <div class="dish-info">
             <h3>${dishName(dish)}</h3>
-            <p>${dishDescription(dish)}</p>
+            ${dishDescription(dish) ? `<p>${dishDescription(dish)}</p>` : ""}
             <div class="dish-bottom">
               <div class="dish-meta">
                 <strong class="price">${dish.price}</strong>
-                <span class="dish-volume">${dish.weight}</span>
+                ${dish.weight ? `<span class="dish-volume">${dish.weight}</span>` : ""}
               </div>
             </div>
           </div>
@@ -1351,7 +1360,7 @@
       if (!card) return;
       const dish = dishes[Number(card.dataset.index)];
       els.modalTitle.textContent = dishName(dish);
-      els.modalMeta.textContent = `${dish.weight} · ${dish.price}`;
+      els.modalMeta.textContent = dish.weight ? `${dish.weight} · ${dish.price}` : dish.price;
       els.modalDescription.textContent = dishDescription(dish);
       els.modal.classList.add("open");
     });
