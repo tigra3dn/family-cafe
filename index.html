@@ -420,20 +420,6 @@
         linear-gradient(180deg, rgba(255,246,229,.78), rgba(218,183,139,.78));
     }
 
-    .weight {
-      position: absolute;
-      bottom: .75rem;
-      left: .75rem;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: .55rem;
-      background: rgba(0,0,0,.52);
-      color: white;
-      padding: .25rem .55rem;
-      font-size: .72rem;
-      font-weight: 800;
-      backdrop-filter: blur(8px);
-    }
-
     .dish-info {
       display: flex;
       flex: 1;
@@ -1248,7 +1234,6 @@
           <div class="image-box">
             ${dish.image ? `<img src="${dish.image}" alt="${dishName(dish)}" loading="lazy" onerror="this.hidden=true">` : ""}
             <div class="moderation-label">${t("moderation")}</div>
-            <span class="weight">${dish.weight}</span>
           </div>
           <div class="dish-info">
             <h3>${dishName(dish)}</h3>
