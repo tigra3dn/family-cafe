@@ -882,6 +882,7 @@
     const pizzaImageBase = "assets/images/food/pizza/";
     const beerSnacksImageBase = "assets/images/food/beer-snacks/";
     const piesImageBase = "assets/images/food/pies/";
+    const dessertsImageBase = "assets/images/food/desserts/";
 
     const translations = {
       ro: {
@@ -1052,8 +1053,10 @@
       { name: "Placinta cu varza", nameRu: "Плацинда с капустой", description: "Umplutură cu varză, aluat copt și crustă rumenă.", descriptionRu: "Капустная начинка, печёное тесто и румяная корочка.", weight: "180 g", price: "15 lei", category: "pies", image: piesImageBase + "placinta-cu-varza-180.jpg" },
       { name: "Placinta cu visina", nameRu: "Плацинда с вишней", description: "Umplutură cu vișină, aluat copt și gust dulce-acrișor.", descriptionRu: "Вишнёвая начинка, печёное тесто и кисло-сладкий вкус.", weight: "130 g", price: "14,50 lei", category: "pies", image: piesImageBase + "placinta-cu-visina.jpg" },
       { name: "Placinta cu visina", nameRu: "Плацинда с вишней", description: "Umplutură cu vișină, aluat copt și gust dulce-acrișor.", descriptionRu: "Вишнёвая начинка, печёное тесто и кисло-сладкий вкус.", weight: "180 g", price: "18 lei", category: "pies", image: piesImageBase + "placinta-cu-visina.jpg" },
-      { name: "Cușma lui Guguță", description: "Clătite, vișine și cremă fină.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "" },
-      { name: "Papanași", description: "Desert cald cu smântână și dulceață.", weight: "xxx g", price: "xxx lei", category: "desserts", image: "" }
+      { name: "Cheesecake", nameRu: "Чизкейк", description: "Desert din cremă de brânză mascarpone coaptă.", descriptionRu: "Десерт из запеченного крема из сыра маскарпоне.", weight: "100 g", price: "35,00 lei", category: "desserts", image: dessertsImageBase + "cheesecake.jpg" },
+      { name: "Clătite cu brânză și sos de smântână", nameRu: "Блины с творогом и сметанным соусом", description: "Clătite cu brânză și sos de smântână.", descriptionRu: "Блины с творогом и сметанным соусом.", weight: "150 g", price: "60,00 lei", category: "desserts", image: dessertsImageBase + "clatite-cu-branza.jpg" },
+      { name: "Înghețată în asortiment", nameRu: "Мороженое в ассортименте", description: "3 bile de înghețată.", descriptionRu: "3 шарика мороженого.", weight: "150 g", price: "55,00 lei", category: "desserts", image: dessertsImageBase + "inghetata-in-asortiment.jpg" },
+      { name: "Napoleon", nameRu: "Наполеон", description: "Produs din foitaj cu unt și cremă fiartă cu mascarpone.", descriptionRu: "Изделие из слоеного теста с маслом и заварным кремом с маскарпоне.", weight: "90 g", price: "18,00 lei", category: "desserts", image: dessertsImageBase + "napoleon.jpg" }
     ].map(dish => ({ ...dish, image: dish.image && !dish.image.includes("/") ? imageBase + dish.image : (dish.image || "") }));
 
     const drinkGroups = [
